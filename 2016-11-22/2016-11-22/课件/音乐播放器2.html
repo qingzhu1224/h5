@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	li{ line-height:30px;}
+	.active{ background:red; color:#FFF;}
+</style>
+<script>
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+	var aArr=['千千阙歌','时间都去哪儿了','小苹果','夜的钢琴曲','雨的印记'];
+
+	window.onload=function(){
+		var newOA=document.querySelector('audio');
+		var oUl=document.querySelector('ul');
+		var aBtn=document.querySelectorAll('input');
+		
+		//判断标准
+		//
+		var type=0;
+		aBtn[0].onclick=function(){
+			type=0;	
+		};
+		aBtn[1].onclick=function(){
+			type=1;	
+		};
+		aBtn[2].onclick=function(){
+			type=2;	
+		};
+		aBtn[3].onclick=function(){
+			type=3;	
+		};
+		
+		
+		for(var i=0; i<aArr.length;i++){
+			var oLi=document.createElement('li');
+			oLi.innerHTML=aArr[i];
+			oUl.appendChild(oLi);
+		}
+		
+		var iNow=0;
+		var aLi=document.querySelectorAll('li');
+		for(var i=0; i<aLi.length;i++){
+			aLi[i].index=i;
+			aLi[i].onclick=function(){
+				
+				iNow=this.index;
+				newOA.src='mp3/'+aArr[iNow]+'.mp3';
+				
+				newOA.play();
+				
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].className='';
+				}
+				this.className='active';	
+			};
+		}
+		
+		newOA.onended=function(){		
+			switch(type){
+				case 0:
+					iNow++;
+					if(iNow==aLi.length){iNow=0;}		
+				break;
+				case 1:
+						
+				break;
+				case 2:
+					iNow=rnd(0,aArr.length);	
+				break;
+				case 3:
+					iNow++;
+					if(iNow==aLi.length){return;}		
+				break;
+			}
+		
+			newOA.src='mp3/'+aArr[iNow]+'.mp3';
+			newOA.play();
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].className='';
+			}
+			aLi[iNow].className='active';	
+		};
+		
+			
+	};
+</script>
+</head>
+
+<body>
+	<audio controls></audio>
+	<ul>
+    	
+    </ul>
+    <input type="button" value="列表循环" />
+    <input type="button" value="单曲循环" />
+    <input type="button" value="随机播放" />
+    <input type="button" value="顺序播放" />
+</body>
+</html>

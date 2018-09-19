@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" href="css/foundation.min.css" />
+<link rel="stylesheet" href="css/foundation-datepicker.min.css" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/locales/foundation-datepicker.zh-CN.js"></script>
+<script>
+	$(function(){
+		$('#abc').fdatepicker();
+		
+		$('#abc2').fdatepicker({
+			format: 'yyyy-mm-dd hh:ii',
+			pickTime: true	
+		});
+	});
+</script>	
+</head>
+
+<body>
+	<input type="text"  id="abc"/>
+    
+    
+    <input type="text"  id="abc2"/>
+    
+   
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

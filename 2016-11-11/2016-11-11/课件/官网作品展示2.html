@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	ul{ width:200px; height:300px; margin: auto; position:relative;}
+	ul li{ position:absolute; width:100%; height:100%; background:yellow; top:0; left:0; font-size:50px; text-align:center; line-height:300px; transition:1s; opacity:0;}
+	.now{ z-index:1; opacity:1;}
+	.pre{ transform:perspective(800px) translateX(-200px) rotateY(50deg); opacity:0.8;}
+	.next{ transform:perspective(800px) translateX(200px) rotateY(-50deg); opacity:0.8;}
+	.pre2{transform:perspective(800px) translateX(-300px) rotateY(50deg); opacity:0;}
+	.next2{transform:perspective(800px) translateX(300px) rotateY(-50deg); opacity:0;}
+</style>
+<script>
+	window.onload=function(){
+		 var aBtn=document.querySelectorAll('input');
+		 var aLi=document.querySelectorAll('li');
+		 var bReady=true;
+		 var arrClass=['','pre2','pre','now','next','next2'];
+		 aBtn[0].onclick=function(){
+			if(!bReady)return;
+			bReady=false;
+			arrClass.push(arrClass.shift());
+			for(var i=0; i<aLi.length;i++){
+				aLi[i].className=arrClass[i];
+			}	 
+		 };
+		 aBtn[1].onclick=function(){
+			if(!bReady)return;
+			bReady=false;
+			arrClass.unshift(arrClass.pop());
+			for(var i=0; i<aLi.length;i++){
+				aLi[i].className=arrClass[i];
+			}	 
+		 };	
+		 
+		 //运动完毕时
+		 aLi[0].addEventListener('transitionend',function(){
+			bReady=true;
+				 
+		},false);
+
+	};
+</script>
+</head>
+
+<body>
+	<p style="text-align:center; margin-top:100px;">
+    	<input type="button" value="上一个" />
+        <input type="button" value="下一个" />
+    </p>
+	<ul>
+    	<li>1</li>
+        <li class="pre2">2</li>
+        <li class="pre">3</li>
+        <li class="now">4</li>
+        <li class="next">5</li>
+        <li class="next2">6</li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

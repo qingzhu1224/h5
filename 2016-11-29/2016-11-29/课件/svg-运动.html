@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	svg{ width:700px; height:500px; background:#EEE;}
+	.box{ x:100px; y:100px; width:200px; height:200px; fill:pink; transition:1s;}
+</style>
+<script>
+	window.onload=function(){
+		var rect=document.querySelector('.box');
+		
+		rect.onclick=function(){
+			this.style.x='400px';	
+		};
+	};
+</script>
+</head>
+
+<body>
+	<svg>
+    	<rect class="box"></rect>
+    </svg>
+</body>
+</html>

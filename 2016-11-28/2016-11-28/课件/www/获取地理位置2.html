@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	if(navigator.geolocation){
+		//验证浏览器是否支持定位
+		
+		navigator.geolocation.getCurrentPosition(function(ev){
+			//alert(ev.coords.longitude);	//116.3639755
+			alert('aaa'+ev.coords.latitude);
+			//40.099675999999995
+		},function(){
+			alert('错了');	
+		});
+			
+	}
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

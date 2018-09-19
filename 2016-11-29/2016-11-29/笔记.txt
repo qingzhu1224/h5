@@ -1,0 +1,354 @@
+1. transition
+
+2. animation:run 1s ease 2s alternate forwards infinite;
+		
+		alternate 交替运动
+		forward   定在终点
+		infinite  无限循环运动
+
+	animation-name:run;
+	animation-duration:1s;
+	animation-timing-function:ease;
+	animation-iteration-count:infinite;
+	animation-direction:alternate;
+	animation-delay:2s;
+	animation-fill-mode:forwards;
+	animation-play-state:paused; 暂停运动
+
+运动形式的调用：
+	animate.css   animated bounceIn ...
+------------------------------------------------------
+获取地理位置：
+
+navigator.geolocation.getCurrentPosition(function(ev){
+          成功
+     ev.coords.longitude 经度
+     ev.coords.latitude  纬度
+     ev.coords.accuracy 精确度
+          高于60 基本不可用
+     ev.coords.altitude 海拔高度
+     ev.coords.altitudeAccuracy 海拔高度精确度
+     ev.coords.heading 朝向
+     ev.coords.speed 速度
+},function(ev){
+     失败
+     ev.code 
+          0 未知错误 检查api 服务器端 chrome 谷歌API
+          1.用户拒绝 
+          2.获取失败 网络问题 服务器问题 
+          3.超时 长时间没有返回值
+    ev.message
+});
+------------------------------------------------------
+var timer= navigator.geolocation .watchPosition(fnSucc,fnFail,{
+      frequency:1000 //监听频率
+ });
+
+ ---------------------------------------------
+ 百度地图：
+
+ ---------------------------------------------
+多线程
+
+----------------------------------------------
+webSql 5M
+
+localStorage 5M
+
+cookie 
+----------------------------------------------
+     回忆怎么去手机上看自己的页面
+
+     手机访问网址 ： 二维码扫描得到 直接输入网址
+
+     //运动完毕 兼容写法 webkitAnimationEnd
+	 oBox.addEventListener('webkitAnimationEnd',function(){
+		//alert('完了');
+		oBox.classList.remove('move');
+	 },false)
+----------------------------------------------------
+重力感应：
+	 window.DeviceMotionEvent   if判断是否支持
+
+===================================================
+canvas 画图
+	位图，像素为单位 像素级图
+	位图：放大缩小 会失真 ，以像素为单位
+	没有属性，不能加事件
+
+svg 画图
+	矢量图：没有固定大小单位，放大缩小不失真！
+	字体图标 矢量图 
+	有属性，可以加事件！
+
+	svg用标签画图！ 一些svg标签
+
+		用标签来画：
+		线：
+		<line x1="100" y1="100" x2="200" y2="200" stroke="red"></line>
+
+		x1="100" y1="100" x2="200" y2="200"
+
+		stroke="red" 描边
+		stroke-width="10" 线宽
+
+		样式：
+		line{ stroke:green; stroke-width:10px;}
+
+		
+		标签、class、id...
+
+   		样式优先级：
+
+   	属性/继承 < * < div < .class < #id < 行间 < !important
+
+
+    svg加事件比较方便：数据操作图
+
+获取svg标签：
+    	getElementById();
+        getElementsByClassName()
+        getElementsByTagName()
+
+        querySelector()
+        querySelectorAll()
+
+添加事件：
+        a). <input onclick=""
+        b). obj.onclick
+        c). obj.addEventListener()
+
+设置样式：
+	  style/className
+
+获取：
+     getComputedStyle(this,false).xxx
+
+属性：
+    obj.getAttribute();
+    obj.setAttribute();
+-----------------------------------------------------
+变形：
+	transform="rotate(10)" 旋转 默认中心点在画布左上角
+
+	transform="rotate(30,150,100)" 定义旋转中心点位置
+
+		150，100 中心点位置坐标
+
+	translate(0,0) 平移
+
+	transform="scale(2)" 缩放 （影响距离）
+
+样式表示：
+	transform:rotate(50deg);
+	transform-origin:center; 旋转中心点位置
+
+	transform:translate(100px,-50px); 平移
+
+	transform:scale(2); 缩放比例
+
+	transform:skew(10deg); 样式 改变倾斜
+
+矩形：
+	
+	<rect class="box"></rect>
+
+	.box{ width:300px; height:300px; fill:blue; x:200px; y:200px;}
+------------------------------------------------
+圆：
+	<circle cx="100" cy="100" r="50" fill="green" fill-opacity="0.5" stroke="red" stroke-opacity="0.3"></circle>
+
+	样式：
+		circle{  cx:100px; cy:100px; r:50px; fill:green; fill-opacity:0.5; stroke:red; stroke-opacity:0.3;}
+椭圆：
+    <ellipse cx="200" cy="200" rx="100" ry="10"></ellipse>
+
+    样式：
+    	cx:圆的中心点
+    	cy:圆的中心点
+    	rx:圆角半径（X）
+    	ry:圆角半径（Y）
+
+------------------------------------------------
+   svg能用到属性：
+    stroke="red"
+    stroke-width="10"
+    fill="填充色" 填充
+    fill="none"  干掉(默认的黑)填充颜色
+    fill-opacity="" 填充透明度
+    stroke-opacity="" 描边透明度
+
+   css上的样式 和 属性上的样式 值 （单位是否需要写）
+==================================================
+
+stroke-lineCap=""  端点样子
+    butt | round | square
+
+stroke-lineJoin="" 连接样子
+    miter | round | bevel
+
+==================================================
+
+虚线：
+	stroke-dasharray="5" 有色区域和无色区域 都是一样的
+
+	stroke-dasharray="5,10" 有色5px 间隔10px
+
+	stroke-dasharray="5,10,20,30" 依次控制间隔长度
+
+-------------------------------------------------
+css3 
+	transition:1s all ease
+
+-------------------------------------------------
+添加：
+    父级.appendChild(元素);
+    父级.insertBefore(元素,谁)
+删除：
+    父级.removeChild(元素);
+
+------------------------------------------------
+js创建svg标签：
+	1. 需要声明
+		//NS name space 命名空间 
+		var oLine=document.createElementNS('http://www.w3.org/2000/svg','line');
+----------------------------------------------
+路径：
+	<path d="M200 200 L300 100 L400 200 Z" stroke="red" fill="none"></path>
+
+	M -> moveTo
+    L -> lineTo  (省略)
+    Z -> 闭合路径
+----------------------------------------------
+插入文字：
+<text x="402" y="87">百葛桥</text>
+
+---------------------------------------------------
+vml 微软出的 svg H5
+	
+	IE6, 7, IE8不兼容 IE9兼容 svg IE10跟系统 IE11 edge
+
+---------------------------------------------------
+强制变成IE7模式渲染：
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+---------------------------------------------------
+基本使用流程：
+1. html里面添加一个命名空间
+    <html lang="en" xmlns:zns="urn:schemas-microsoft-com:vml">
+2. 添加一个样式
+    zns\:* {behavior: url(#default#VML);}
+3. 画图
+    <zns:line from="100,100" to="300,300"></zns:line>
+
+    strokecolor="red"  描边颜色
+    strokeweight="30"  线宽
+
+关于命名空间：
+     xmlns:zns="urn:schemas-microsoft-com:vml"
+     xmlns:baidu="urn:schemas-microsoft-com:vml"
+
+     xmlns:v
+
+样式：
+   	 v\:* { behavior: url(#default#VML); position:absolute;}	
+
+-------------------------------------------------------
+fillcolor=""  填充颜色 只能加到属性上面
+strokecolor='blue' 描边颜色
+
+------------------------------------------------------
+虚线：
+<v:line from="100,100" to="300,300">
+    <v:stroke dashstyle="dot/dash"/>  
+</v:line>
+
+
+
+线开头结尾样式：
+    <v:stroke endArrow="classic"/> 箭头
+    <v:stroke startArrow="oval"/>  圆
+
+-------------------------------------
+折线：
+    <v:PolyLine Points="0,0 0,100 20,150 200,100"/>
+
+路径：
+	<v:shape path="M200 200 L300 100 L400 200 X" style="width:800px; height:600px"></v:shape>
+
+圆角矩形：
+	<v:roundrect class="box"></v:roundrect>
+
+===================================================
+不兼容：
+	svg 高级浏览器
+
+	vml  IE系列 不兼容IE8 
+
+---------------------------------------------------
+库：
+	raphael 拉斐尔
+
+	http://dmitrybaranovskiy.github.io/raphael/
+
+API：
+	http://dmitrybaranovskiy.github.io/raphael/reference.html
+
+
+	//运动
+	circle.animate({fill: "green", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000);
+
+
+echarts：
+
+	http://echarts.baidu.com/
+
+=======================================================
+
+D3
+	官网：https://d3js.org/
+
+
+======================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------
+
+
+
+
+
+
+
+	
+
+
+
+
+

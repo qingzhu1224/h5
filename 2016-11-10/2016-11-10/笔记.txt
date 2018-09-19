@@ -1,0 +1,152 @@
+渐变
+	线性渐变
+		-webkit-linear-gradient(left top,red,blue)
+	径向渐变
+		-webkit-radial-gradient(red,blue)
+蒙版
+	-webkit-mask:url(img/1.png); 只显示有颜色的部分
+
+背景
+	多背景
+	背景图大小 background-size:100% 100px contain cover
+	背景图起始位置： background-origin:border-box/padding-box/content-box;
+	背景图开切位置： background-clip:border-box/padding-box/content-box/text;
+	
+	border
+	padding
+	content
+	文本开切
+
+倒影
+	-webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0));
+
+滤镜
+	-webkit-filter:blur(10px); 图片模糊
+缩放
+	 risize:both;
+	 overflow:auto;
+rgba
+	rgba(255,255,0,0.5);
+文字描边
+	-webkit-text-stroke:10px red;
+文本排序
+	direction:ltr/rtl;
+	unicode-bidi:bidi-override;
+文件截取
+	white-space:nowarp;
+	overflow:hidden;
+	text-overflow:ellipsis;
+动画帧
+	@keyframes name{
+		0%{
+			width:100px;
+		}
+		100%{
+			width:200px;
+		}
+	}
+
+	animation:name 1s linear infinite;
+阴影
+	文字 text-shadow : 10px 20px 10px red;
+	块   box-shadow: 10px 10px 10px 20px red inset;
+
+变形 transform
+	旋转:rotate(30deg);
+
+过渡
+	transition:1s all ease ;
+圆角
+	border-radius:10px 20px 30px 40px;
+----------------------------------------------------------
+个人站：将自己的信息 简历 作品 推销自己 精心设计 
+		
+		参考线上的模板
+
+		设置一个导航 
+--------------------------------------------------------
+变形：transform
+	旋转：transform:rotate(60deg);
+	平移：transform:translate(100px,0px);
+	缩放：transform:scale(2,2); 可以写负值
+	倾斜：transform:skew(90deg);
+
+------------------------------------------------------
+css3 变形 旋转  小练习
+
+	旋转中心点控制：left right top bottom center 100px;
+	transform-origin:center bottom;
+
+
+中心放大的块
+官网登录
+
+多个值一起写：
+transform:skew(30deg) scale(2) translate(100px,100px) rotate(30deg);
+
+---------------------------------------------------------
+变形：3D效果
+
+	rotateX();
+	rotateY();
+	rotateZ();
+
+	translate3d(x,y,z);
+	translateX(x);
+	translateY(y);
+	translateZ(z);
+
+	scale()
+	scale3d(1,1,2);
+
+	skew(x,y);
+	
+	景深 样式：
+		transform:perspective(800px) 800-1200
+
+	将盒子变成3d盒子：
+		transform-style:preserve-3d;
+-------------------------------------------------------
+牌翻面：
+
+立方体： 六个面  
+	小练习 键盘控制立方体 动
+		onkeydown
+		onkeyup
+			keyCode
+
+官网作品展示
+
+-------------------------------------------------------
+
+http://www.zhinengshe.com/works/3518/zns_demo.html
+
+http://www.zhinengshe.com/works/3540/zns_demo.html
+
+http://www.zhinengshe.com/works/3518/zns_demo.html
+
+-------------------------------------------------------
+运动完毕时 用事件绑定添加：
+	transitionend 监听运动状态
+
+小练习：
+	个人站
+
+	表盘
+	中心放大的块
+	官网登录
+	翻拍效果
+	立方体 键盘控制
+	官网作品展示
+	3D翻页效果
+
+
+
+
+
+
+
+	
+
+
+

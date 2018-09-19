@@ -1,0 +1,84 @@
+base64 存储数据的一种格式
+
+	存： 文本 图片 音频 视频
+
+
+  	创建读取文件的对象：
+  		1. var reader= new FileReader();
+
+  	定义读取方式：
+  		2. reader.readAsText(oFile,'gb2312');
+  		2-2.reader.readAsDataURL(oFile)
+
+  	读取成功：
+  		3. reader.onload=function(){
+  			reader.result; //读取内容
+  		 }
+  	其他事件：
+  		  reader.onerror 读取错误
+          reader.onloadend 读完完成
+          reader.onloadstart 开始读取
+          reader.onprogress 读取过程中
+          reader.onabort 中断
+
+    强制中断：
+     reader.abort(); 强制中断
+---------------------------------------------------------
+视频播放器：
+	自定义控制器
+
+	不兼容的浏览器 ，在video标签之内写入升级连接
+
+	autoplay 自动播放
+	loop     循环播放
+	poster   欢迎界面
+
+	兼容写法：
+		<video controls autoplay>
+		    <source src="1.mp4">
+		    <source src="1.ogg">
+		    <source src="1.webM">
+		</video>
+
+视频操作：
+	oV.play();    播放
+	oV.pause();   暂停
+	oV.currentTime 播放时间
+	oV.volume 0-1 音量
+	oV.muted=true; 是否静音
+
+	//当视频播放过程中
+	oV.ontimeupdate=function(){
+		console.log(1);
+	};
+
+	//全屏
+	oV.webkitRequestFullScreen();
+==========================================================
+	https://y.qq.com/portal/player.html
+
+==========================================================
+音乐播放器：
+	oA.onended=function(){
+		//当文件播放完毕时
+	};
+========================================================
+拉勾效果：
+
+--------------------------------------------------------
+照片墙：
+
+=======================================================
+练习：
+	照片墙，
+	拉勾效果，
+	音乐播放器，
+	文件拖拽 生成base64数据 显示到页面上
+
+
+	
+
+
+
+  	
+

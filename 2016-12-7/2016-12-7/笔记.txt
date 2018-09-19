@@ -1,0 +1,176 @@
+后台 给我接口文档 我通过ajax获取后台数据
+
+ajax？
+	异步的http请求 
+
+请求数据格式：  json 字符串 转义 eval 
+
+---------------------------------------------
+bootstrap
+	引入核心css和js  通过内置的属性和class操作对应的dom节点
+
+	调用模板 二次开发
+---------------------------------------------
+jquery：
+	现在有点low 经常用 我觉得 最核心 最有用的就选择器 H5 选择器可以去代替
+
+---------------------------------------------
+angular/vue
+	你写一个angular，核心思想 操作数据，
+	优点：不用操作dom 提高性能。
+	流行 一切以数据为准 交互难度降低 
+
+	服务
+	指令
+	过滤器
+
+	路由 路径/锚点 单页面应用
+ 	懒加载 
+------------------------------------------
+微信开发：
+	不是特别懂 不懂  特别不懂
+	
+	我知道 后台配合 
+
+------------------------------------------
+学习  查 百度 找群 
+
+------------------------------------------
+面向对象 
+	封装选项卡 
+
+H5
+	移动端布局 rem 
+	canvas 捕鱼 定时器 不停的动 碰撞检测 面向对象思想 
+
+less
+	节省css代码
+
+网站布局
+	
+公司晋升渠道  51cto 
+------------------------------------------
+ES6
+	ECMAScript6
+
+	ECMAScript5.5 js核心解释语法
+
+	var a=12;作用域：
+		1. 以函数为作用域
+
+	let a=12; 作用域：
+		1. 以{}为作用域
+	
+	alert(a);
+
+	const a=12; 定义常量
+
+	反单引号:    var str= ``    字符串模板
+
+	现在:    `abc${变量名}ef`
+
+	let [a,b,c]=[12,6,888]; 解构赋值
+
+转换成真实数组：
+	function show(...arguments){
+		arguments.push(5);
+         alert(arguments);
+    }
+    show(1,2,3,4);
+
+------------------------------------------
+for of
+
+map 存数据的一种格式 
+	
+	for of
+
+	循环name,val
+	for(var name of map){
+        console.log(name); // a,apple   b,banana
+    }
+
+    循环name和val
+    for(var [key,value] of map){
+		console.log(value)	 
+	 }
+
+	 for(var name of map.entries()){
+        console.log(name);
+    }
+
+
+
+json 使用for in
+
+-----------------------------------------
+箭头函数：
+	let show=(a)=>a;
+
+	1. this指向window
+	2. arguments被干掉了
+
+----------------------------------------------
+function Person(name,age){    //类、构造函数
+        this.name=name;
+        this.age=age;
+}
+Person.prototype.showName=function(){
+        return this.name;
+};
+Person.prototype.showAge=function(){
+        return this.age;
+};
+---------------------------------------------
+class Person{ //类
+    constructor(name,age){
+            this.name=name;
+            this.age=age;
+    }
+    showName(){
+            return this.name;
+    }
+    showAge(){
+            return this.age;
+    }
+}
+
+继承：
+class Worker extends Person{
+	constructor(){
+		super()    //调用父级构造
+		this.job='代码员'
+	}
+	showJob(){
+		alert(this.job)	
+	}
+}
+--------------------------------------------
+模块化：
+	ES6自带模块化
+
+
+	形式上:
+        a). 函数名字前面有 *
+        b). 函数内部使用 yield语句
+
+
+	function* show(){
+            yield 'Hello';
+            yield 'World';
+            yield 'Es6';
+    }
+    var res=show();
+
+ES6 ：
+	声明变量
+	常量
+	循环 for of
+	解构赋值
+	箭头函数
+	map对象
+	模块化
+----------------------------------------------
+
+
+

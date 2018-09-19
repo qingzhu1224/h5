@@ -1,0 +1,59 @@
+1. header
+2. footer
+3. section
+4. article
+5. aside
+6. nav
+7. time
+8. address
+9. mark
+10.progress meter
+11.number
+12.email
+13.date
+14.color
+15.tel
+16.search
+17.range
+18.url 
+19.querySelector
+20.querySelectorAll
+21.dataset  delete dataset
+22.classList.add();
+23.classList.remove();
+24.classList.toggle();
+25.classList.contains();
+26.localStorage
+27.li[title]
+28.li[title=abc]
+29.li[title^=a]
+30.li[title$=a]
+31.li:nth-child(1)
+32.li:nth-child(even)
+33.li:nth-child(odd)
+34.li:nth-child(3n);
+35.li:nth-last-child(1)
+36.div>p
+37.border-radius
+38.text-shadow
+39.box-shadow
+40.-webkit-linear-gradient
+41.-webkit-repeating-linear-gradient
+42.-webkit-text-stroke
+43.-webkit-mask
+44.background-size
+45.-webkit-box-reflect
+46.-webkit-filter:blur(10px);
+47.@-webkit-keyframes run{
+	from{}
+	to{}
+}
+48.transform:
+	rotate
+	translate
+	scale
+	skew
+49.perspective(800px)
+50.transform-style:preserve-3d;
+51.transitionend
+

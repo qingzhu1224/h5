@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+<script>
+	window.onload=function(){
+		var app=new Vue({
+			el:'.box',
+			data:{
+				abc:true	
+			},
+			methods:{
+				toHide:function(){
+					
+					this.abc=!this.abc;	
+				}	
+			}
+		});	
+	};
+</script>
+</head>
+<body>
+	
+	<div class="box" style="border:1px solid red;" >
+    	<input type="button" value="按钮" v-on:click="toHide()" />
+    	<p v-if="abc">你能看到我</p>
+        <p v-else="abc">这是第二段</p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; transform:translate(0,0);}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.querySelector('div');
+		
+		var x=0;
+		var y=0;
+		oDiv.addEventListener('touchstart',function(ev){
+			var cX=ev.targetTouches[0].clientX;
+			var cY=ev.targetTouches[0].clientY;
+			var disX=cX-x;
+			var disY=cY-y;
+			
+			function fnMove(ev){
+				x=ev.targetTouches[0].clientX-disX;
+				y=ev.targetTouches[0].clientY-disY;
+				oDiv.style.transform='translate('+x+'px,'+y+'px)';
+			}
+			
+			function fnEnd(){
+				document.removeEventListener('touchmove',fnMove,false);
+			
+				document.removeEventListener('touchend',fnEnd,false);	
+					
+			}
+			
+			document.addEventListener('touchmove',fnMove,false);
+			document.addEventListener('touchend',fnEnd,false);	
+		
+			//return false;	
+			ev.preventDefault();
+		},false);
+		
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

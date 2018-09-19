@@ -1,0 +1,208 @@
+用来管理代码工具
+
+	svn 集中式管理，网站域 局域网之内  新浪云
+
+	git 分布式管理，各个位置都保存，不在局域网之内 也可以去访问
+
+		github 
+
+	俩种方法：		
+
+		1. 
+
+		2. 
+
+	写简单的命令：不说话 就是成功！
+		创建文件：touch a.txt（文件名）
+		编辑：
+			1. vi a.txt
+			2. i
+			3. 编辑...
+			4. ESC
+			5. :wq 
+		删除：rm a.txt
+
+		新建文件夹：mkdir 文件夹名称
+		进入文件夹：cd  文件夹名称
+		跳出文件夹：cd  ..
+		跳转盘符： cd e:
+		删除文件夹：rmdir 文件夹名称
+		tab 补全命令
+		clear 清屏
+-------------------------------------------------------------
+先去准备工作：
+	1. 在github上点击头像 下的settings
+		选择：SSH keys
+			ssh-keygen -t rsa -C 'github账号'
+
+			找到生成的秘钥
+
+			复制粘贴到 settings key当中
+
+	2. git config -l 查看配置列表
+			添加俩项配置：
+			git config --global user.email “xx@xx.com”
+        	git config --global user.name “xxxx”
+
+第一种方法：先得写
+		git  
+
+		git init 初始化目录 
+
+		git add . 本地的缓存区
+
+		git commit -m '提交日志'
+
+		git remote add origin https://github.com/cris-zhibao/2016-11-21.git 建立仓库地址链接
+
+		git push -u origin master 提交
+
+第二种方法：
+
+		复制仓库地址
+
+		git clone 仓库地址
+
+		进入仓库文件夹
+
+		git add .
+
+		git commit -m '提交日志'
+
+		git push
+
+		输入账号密码
+----------------------------------------------------------
+Repository name 必须必须必须！ 
+	这样写： 账号名.github.com
+			 cris-zhibao.github.com
+
+访问路径：
+	https://cris-zhibao.github.io/
+
+==========================================================
+表单：
+	属性：
+		autofocus 自动获取焦点
+		placeholder 
+		autocomplete="off" 提示文字消失
+		required 必填
+		title 错误信息
+--------------------------------------------------------
+序列化，串行化，持久化
+	
+	数据格式：
+		数字   var a=12;
+		字符串 var a='12';
+		数组   var arr=[12,'12'];
+		json   var json={a:12,b:'12'}
+
+	后台 前台
+		什么格式的数据是最稳定的
+
+		var json='{a:12,b:5}';
+
+		json.a=666;
+
+	序列化： 将json转成字符串（转成标准格式的字符串json）
+
+			JSON.stringify(json);
+
+	反序列化： 将字符串转成json(字符串中json格式必须标准)
+
+			JSON.parse(str)
+----------------------------------------------------------
+本地存储：
+	不同窗口数据同步
+
+	当本地存储数据发生变化的时候：
+		window.onstorage=function(ev){
+			ev.key 改变的storage的名称
+
+		}
+
+	购物车
+---------------------------------------------------
+文件拖拽：
+	ondragenter 拖入事件
+
+	ondragleave 拖出事件
+
+	ondragover 移入事件
+
+	var timer=null;
+	document.ondragover=function(){
+		clearTimeout(timer);
+		oDiv.style.display='block';
+		
+		timer=setTimeout(function(){
+			oDiv.style.display='none';		
+		},300);
+	};
+
+	浏览器的默认行为： 清除
+
+
+	//丢弃文件：
+	//必须将ondragover事件清空才可以
+		oDiv.ondragover=function(){return false};
+		oDiv.ondrop=function(){
+			alert(1);
+			return false;	
+		};
+
+	文件基本信息：
+			//文件个数
+			//alert(aFile.length);
+			//文件大小
+			//alert(aFile[0].size);
+			//文件名称
+			//alert(aFile[0].name);
+			//文件类型
+			//alert(aFile[0].type);
+			//文件修改日期
+			alert(aFile[0].lastModifiedDate);
+------------------------------------------------------------
+git github
+
+序列化：
+	本地存储 同步拖拽
+
+文件拖拽：
+	读取文件基本信息
+
+-------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+

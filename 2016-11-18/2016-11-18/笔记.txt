@@ -1,0 +1,159 @@
+三角函数
+	
+	给你俩个值
+	
+	sin@=对边/斜边
+	cos@=邻边/斜边
+	tan@=对边/邻边
+
+勾股定理
+	a*a+b*b=c*c
+
+	c=开方(a*a+b*b)
+
+	c=Math.sqrt(a*a+b*b);
+-------------------------------------------------------
+圆 
+-------------------------------------------------------
+jqueryMobile
+
+-------------------------------------------------------
+zepto.js iscroll hammer git github
+
+	zepto.js 
+	中文：http://www.css88.com/doc/zeptojs_api/
+
+	中文站：http://www.zeptojs.cn/
+
+	下载：http://zeptojs.com/zepto.min.js
+
+--------------------------------------------------------
+	zepto:
+		下拉框
+			toggle
+			toggleClass
+
+		选项卡
+			attr
+			show
+			hide
+			addClass
+			removeClass
+			css()
+
+		拖拽：
+			移动端事件
+
+			自己生成的事件
+
+--------------------------------------------------------------
+移动端事件：
+	touch.js 下载
+
+	<script src="js/touch.js"></script>
+
+	'swipe', 滑动
+	'swipeLeft', 左划
+	'swipeRight', 右划
+	'swipeUp', 上划
+	'swipeDown', 下划
+    'doubleTap', 双击
+    'tap', 轻点
+    'singleTap', 单击 300ms
+    'longTap' 长按 700ms
+
+------------------------------------------------------
+交互
+	ajax 
+		url
+		success
+		error
+
+	jsonp
+	    https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=zepto&cb=a
+
+		dataType 声明获取方式
+		jsonp:'cb', 回调函数的名称
+		data:{	//传入的数据
+			wd:'提莫'
+		}
+---------------------------------------------------------
+hammer 
+
+	官网：http://hammerjs.github.io/
+
+	API:http://hammerjs.github.io/api/
+
+		swipe
+			var obj=new Hammer(oDiv);
+			//开启上下滑动的权限
+			obj.get('swipe').set({direction: Hammer.DIRECTION_VERTICAL});
+				
+			obj.on('swipeup',function(){
+				alert(1);	
+			});
+
+	多手势操作权限：
+		pinch:
+			pinchstart
+			pinchmove
+			pinchend
+			pinchcancel
+			pinchin
+			pinchout
+
+		angle 获取角度
+
+		scale 获取缩放比例
+
+	//开启多手势操作权限
+	obj.get('pinch').set({enable:true});
+	
+	obj.on('pinch',function(ev){
+		alert(ev.angle);
+	})
+----------------------------------------------------------
+小任务：
+	注册 github
+		网址：https://github.com/
+
+		登录进入网站：
+			点击头像：settings
+				email 激活邮箱
+
+		试着创建仓库：
+			点头像左边的+
+				Repository name
+	git
+		会一点linux 命令
+			创建文件/文件夹
+			删除文件/文件夹
+			跳转目录
+			清屏
+			编辑文件
+		预习：
+			http://www.php100.com/html/webkaifa/Linux/2009/1106/3485.html
+
+	svn 新浪云
+=========================================================
+个人网站
+	
+	移动端练习
+	PC端练习
+		总结
+
+	设置一个个人站网址在新浪云
+========================================================
+	
+
+
+
+
+
+
+
+
+
+
+
+	

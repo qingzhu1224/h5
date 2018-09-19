@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	.showbox{ width:200px; height:200px; background:red; display:none; color:#FFF; font-size:30px; text-align:center; line-height:200px; position:absolute; top:50%; left:50%; margin-left:-100px; margin-top:-100px;}
+	.picbox{ width:200px; height:200px; border:1px solid #CCC;}
+	.picbox img{ width:100%; height:100%;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.querySelector('div');
+		var oBox=document.querySelector('.picbox');
+		
+		var timer=null;
+		document.ondragover=function(){
+			clearTimeout(timer);
+			oDiv.style.display='block';
+			
+			timer=setTimeout(function(){
+				oDiv.style.display='none';		
+			},300);
+		};
+		
+		
+		//必须将ondragover事件清空才可以
+		oDiv.ondragover=function(){return false};
+		oDiv.ondrop=function(ev){
+			var aFile=ev.dataTransfer.files;
+			
+			//读取文件对象
+			var reader=new FileReader();
+			
+			//读取成功！
+			reader.onload=function(){
+				//alert('读完了');
+				
+				//reader.result;
+				oBox.innerHTML='<img src="'+reader.result+'" />';
+				
+				
+				//alert(reader.result);
+			};
+			
+			//读取方式：
+			//以文本方式读取
+			//reader.readAsText(aFile[0]);
+			//以base64形式读取
+			reader.readAsDataURL(aFile[0]);
+			
+			
+			
+			
+			
+			
+			
+			return false;	
+		};
+		
+		oDiv.ondragenter=function(){
+			this.innerHTML='释放鼠标';
+		};
+		
+		oDiv.ondragleave=function(){
+			this.innerHTML='请将文件拖拽至此';	
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<div class="showbox">请将文件拖拽至此</div>
+    <div class="picbox"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	body{ overflow:hidden;}
+	*{ padding:0; margin:0; list-style: none;}
+	.list{ width:300px; height:300px;  margin:0px auto; position:relative;}
+	.list li{ width:100%; height:100%; background:yellow; font-size:100px; text-align:center; line-height:300px; position:absolute; top:0; left:0; transition:1s; opacity:0;}
+	.list .now{ z-index:1; opacity:1;}
+	.list .pre{ transform:perspective(800px) translateX(-300px) rotateY(60deg);opacity:1;}
+	.list .pre2{ transform:perspective(800px) translateX(-400px) rotateY(60deg); opacity:0;}
+	.list .next{ transform:perspective(800px) translateX(300px) rotateY(-60deg);opacity:1;}
+	.list .next2{ transform:perspective(800px) translateX(400px) rotateY(-60deg); opacity:0;}
+	.btnlist{ text-align:center; margin:100px 0 0;}
+</style>
+<script>
+	window.onload=function(){
+		var aBtn=document.querySelectorAll('input');
+		var oUl=document.querySelector('ul');
+		var aLi=oUl.children;
+		
+		var arr=['next','next2','','pre2','pre','now'];
+		
+		aBtn[0].onclick=function(){
+			arr.push(arr.shift());
+			for(var i=0; i<aLi.length;i++){
+				aLi[i].className=arr[i];
+			}
+		};
+		
+		aBtn[1].onclick=function(){
+			arr.unshift(arr.pop());
+			for(var i=0; i<aLi.length;i++){
+				aLi[i].className=arr[i];
+			}
+		};
+		
+	};
+</script>
+</head>
+
+<body>
+	<p class="btnlist">
+    	<input type="button" value="上一个" />
+		<input type="button" value="下一个" />
+    </p>
+	<ul class="list">
+    	<li class="next">1</li>
+        <li class="next2">2</li>
+        <li>3</li>
+        <li class="pre2">4</li>
+        <li class="pre">5</li>
+        <li class="now">6</li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

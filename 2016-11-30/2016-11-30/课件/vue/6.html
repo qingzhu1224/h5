@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+<script>
+	window.onload=function(){
+		var app=new Vue({
+			el:'.list',
+			data:{
+				list:[
+					'天天向上',
+					'好好学习',
+					'goodgoodstudy',
+					'daydayup'
+				]	
+			}	
+		});
+	};
+</script>
+</head>
+<body>
+	<ul class="list">
+    	<li v-for="item in list">
+        	{{item}}
+        </li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

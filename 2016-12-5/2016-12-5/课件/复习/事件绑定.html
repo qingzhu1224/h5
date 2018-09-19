@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	function addEvent(obj,sEv,fn){
+		if(obj.addEventListener){
+			//高级
+			obj.addEventListener(sEv,fn,false);
+		}else{
+			//低级
+			obj.attachEvent('on'+sEv,fn);
+		}
+	}
+	
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input')[0];
+		
+		addEvent(oInp,'click',function(){
+			alert(1);	
+		});	
+		addEvent(oInp,'click',function(){
+			alert(2);	
+		});	
+	};
+	
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" />
+</body>
+</html>

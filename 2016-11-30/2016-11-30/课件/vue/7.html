@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+<script>
+	window.onload=function(){
+		var app=new Vue({
+			el:'.list',
+			data:{
+				list:{
+					'宠物':'充电宝',
+					'玩具':'自行车',
+					'水果':'洗衣机'	
+				}
+			}	
+		});
+	};
+</script>
+</head>
+<body>
+	<ul class="list">
+    	<li v-for="(item,key,index) in list">
+        	{{index}}. {{key}}是{{item}}
+        </li>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

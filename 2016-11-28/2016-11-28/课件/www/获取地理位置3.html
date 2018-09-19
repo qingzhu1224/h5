@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	if(navigator.geolocation){
+		//验证浏览器是否支持定位
+		
+		navigator.geolocation.getCurrentPosition(function(ev){
+			alert(ev.coords.accuracy);
+		},function(ev){
+			 //ev.code; 错误编码
+			 //0 未知错误
+	         //1.用户拒绝
+	         //2.获取失败 网络原因
+	         //3.超时 时间太长没有反应
+			  
+			  alert(ev.code);
+		});
+			
+	}
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

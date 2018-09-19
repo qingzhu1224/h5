@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	body{}
+	canvas{ margin:0 auto; display:block; border:1px solid red; background:#FFF}
+</style>
+<script>
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		var arr=[20,30,50,14,36,66,18,26,20,45,23];
+		
+		var arrH=[];
+		
+		var iMax=findMax(arr);
+		for(var i=0; i<arr.length;i++){
+			arrH[i]=arr[i]/iMax*oC.height-20;
+		}
+		
+		//设置柱子
+		var w=oC.width/(arr.length*2-1);
+		var space=w;
+		for(var i=0; i<arrH.length;i++){
+			gd.fillRect(i*w+i*space,oC.height-arrH[i],w,arrH[i]);
+		}
+		
+		//找最大值
+		function findMax(arr){
+			var iMax=-99999999;
+			for(var i=0; i<arr.length;i++){
+				if(iMax<arr[i]){
+					iMax=arr[i];
+				}
+			}
+			
+			return iMax;
+		}
+		
+		
+		
+		
+		
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="400"></canvas>
+ 	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

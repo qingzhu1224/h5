@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	canvas{ margin:0 auto; border:1px solid #000; display:block;}
+</style>
+<script>
+	
+	function d2a(n){
+		return Math.PI/180*n;
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		
+		var gd=oC.getContext('2d');
+		
+		gd.strokeStyle='red';
+		//gd.strokeRect(100,100,200,100);
+		//gd.arc(x,y,r,start,end,false);
+		gd.arc(100,100,50,d2a(0),d2a(90),false);
+		gd.stroke();
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

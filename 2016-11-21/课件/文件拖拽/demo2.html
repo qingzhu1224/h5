@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red; margin:100px auto; display:none;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.querySelector('div');
+		
+		document.ondragover=function(){
+			oDiv.style.display='block';
+			console.log(1);	
+		};
+		
+		document.ondragleave=function(){
+			oDiv.style.display='none';	
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

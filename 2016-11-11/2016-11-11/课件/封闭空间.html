@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+	<input type="button" value="1" />
+    <input type="button" value="2" />
+    <input type="button" value="3" />
+</body>
+<script>
+
+	var aBtn=document.querySelectorAll('input');
+	for(var i=0;i<3;i++){
+		//保存for中的i	
+		//alert(i);()
+		
+		(function show(a){
+			//alert(i);
+			aBtn[0].onclick=function(){
+				alert(0);	
+			};
+		})(i)
+		
+		(function show(a){
+			//alert(i);
+			aBtn[1].onclick=function(){
+				alert(1);	
+			};
+		})(1)
+		
+		(function show(a){
+			//alert(i);
+			aBtn[2].onclick=function(){
+				alert(2);	
+			};
+		})(2)
+		
+		//aBtn[i].onclick=show;
+		
+	}
+
+	
+	
+</script>
+</html>
+
+
+
+
+
+
+

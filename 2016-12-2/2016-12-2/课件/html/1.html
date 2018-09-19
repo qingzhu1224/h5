@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/ajax.js"></script>
+
+</head>
+
+<body>
+	<ul class="box">
+    	
+    </ul>
+</body>
+<script>
+	var oUl=document.querySelector('.box');
+	ajax('/news',function(str){
+		var arr=eval('('+str+')');
+		var html='';
+		for(var i=0; i<arr.length;i++){
+			html+='<li><a href="'+arr[i].href+'">'+arr[i].title+'</a></li>';
+		}
+		oUl.innerHTML=html;
+		
+	},function(){
+		alert('错了');	
+	})
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+	<div></div>
+</body>
+<script>
+	//连接数据库
+	var db=openDatabase('test','1.0.0','这是一个测试',20);
+	db.transaction(function(tx){
+		//执行sql语句
+		
+		//创建表格
+		tx.executeSql('CREATE table news(title TEXT,href TEXT)');	
+		
+		//录入一条数据
+        tx.executeSql('INSERT INTO news VALUES("草莓音乐节被批混乱 资本让音乐节变成春晚","http://www.zhinengshe.com")');
+		
+		//输出数据
+		 tx.executeSql('SELECT * FROM news',[],function(tx,result){
+			var oDiv=document.querySelector('div');
+			
+			oDiv.innerHTML='<a href="'+result.rows[0].href+'">'+result.rows[0].title+'</a>';
+			
+		},function(tx,err){alert(err)})
+	});
+	
+</script>
+</html>

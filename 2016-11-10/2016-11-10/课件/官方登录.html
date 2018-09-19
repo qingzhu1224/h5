@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	body{ overflow:hidden;}
+	div{ width:300px; height:200px; border:1px solid red; position:absolute; top:50%; left:50%; margin-left:-150px; margin-top:-100px; background:#CCC; transform:scale(4); opacity:0; transition:0.3s;} 
+	input{ position:absolute; z-index:1;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.querySelector('input');
+		var oBox=document.querySelector('div');
+		oBtn.onclick=function(){
+			oBox.style.opacity='1';
+			oBox.style.transform='scale(1)';
+		};
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="登录" />
+	<div></div>
+</body>
+</html>

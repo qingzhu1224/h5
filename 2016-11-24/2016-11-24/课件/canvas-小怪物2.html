@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	canvas{ border:1px solid red; display:block; margin:50px auto;}
+</style>
+<script>
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		var oImg=new Image();
+		
+		var i=0;
+		var w=40;
+		var h=56;
+		oImg.onload=function(){
+			setInterval(function(){
+				gd.clearRect(0,0,oC.width,oC.height);
+				i++;
+				i%=4;
+				gd.drawImage(oImg,w*i,0,w,h,100,100,40,56);
+			},150);
+		};
+		
+		oImg.src='img/1.png';
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>

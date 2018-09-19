@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red;}
+</style>
+
+<script>
+	/*window.onload=function(){
+		//页面加载完毕
+		//性能一般
+		//左右资源加载完成才会触发
+	}*/
+	
+	//domReady 性能高
+	
+	domReady(function(){
+		//alert(1);	
+		var oDiv=document.getElementsByTagName('div')[0];
+		oDiv.onclick=function(){
+			this.style.background='yellow';	
+		};
+	});
+
+	function domReady(fn){
+		if(document.addEventListener){
+			//高级
+			document.addEventListener('DOMContentLoaded',fn,false);
+					
+		}else{
+			//低级
+			document.onreadystatechange=function(){
+				if(document.readyState=='complete'){
+					fn&&fn();	
+				}		
+			}	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

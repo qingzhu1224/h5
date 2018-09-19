@@ -1,0 +1,94 @@
+交互：
+	引入一个模板
+
+	https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=abv&cb=a
+ajax
+	  this.$http.get('a.txt').then(function(res){
+                                console.log(res.data);
+                           },function(){
+                                 console.log(res.data);
+                           });
+
+jsonp
+
+    this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+        wd:'a'
+    },{
+        jsonp:'cb'
+    }).then(function(res){
+        //console.log(res.data);
+        alert(res.data.s);
+    },function(){
+        //console.log(res.data);
+        alert(res.data);
+    });
+--------------------------------------------------------
+PHP
+	后台语言 做数据 存数据 展示数据 处理数据
+
+	服务器环境下运行！
+
+	 <?php 
+		echo '输出'
+	 ?>
+
+	 $a=12; 声明变量
+
+	 php + 只有一种解释 ： 运算符
+
+	 字符串拼接： . （点）
+
+	 count($arr) 获取数组的长度(length)
+
+	 strpos($str,'e'); 获取文本字节位置
+
+	 echo var_dump($arr); 打印对象
+
+	 array_push($arr,'哈哈哈'); 添加数组中的值
+
+	1. php注意：
+		1. echo输出html代码 字符串
+		2. 整个路径里面不要出现中文
+		3. 每行结尾必须添加分号
+
+	$a=$_GET['name'];
+	$b=$_POST['name'];
+
+	function show(){
+		echo 'abc';
+	}
+	show();
+
+-----------------------------------------------------
+数据库：
+	保存数据 mysql 
+
+	http://localhost/phpmyadmin/
+
+	数据库操作：
+		1. 创建数据库
+
+		新建数据库 -> 新建数据表 -> 新建字段 -> 插入数据 
+
+		类型：
+			INT 整数型
+			text 文本型
+			data 日期
+			varchar 大量文本
+
+		排序规则：
+			utf8_unicode_ci	
+----------------------------------------------------------
+用PHP访问数据库
+	
+
+
+
+
+
+
+
+
+
+
+

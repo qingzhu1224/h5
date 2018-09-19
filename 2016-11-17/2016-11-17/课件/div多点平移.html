@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+<title>无标题文档</title>
+<style>
+	div{ display: none; }
+	.box{ width:200px; height:200px; background:red; margin:100px auto; font-size:30px; color:#FFF; text-align:center; display: block;}
+</style>
+<script>
+	function a2d(n){
+		return 180/Math.PI*n;
+	}
+
+	document.addEventListener('DOMContentLoaded',function(){
+		var oDiv=document.querySelector('div');
+	
+		var x=0;
+		var y=0;
+		document.addEventListener('touchstart',function(ev){
+			var oldX=x;
+			var oldY=y;
+			function getPos(ev){
+				var x1=ev.targetTouches[0].clientX;
+				var y1=ev.targetTouches[0].clientY;
+				var x2=ev.targetTouches[1].clientX;
+				var y2=ev.targetTouches[1].clientY;
+				
+				var x=(x1+x2)/2;
+				var y=(y1+y2)/2;
+				
+				return {x:x,y:y};
+			}
+			
+			if(ev.targetTouches.length==2){
+				var downPosX=getPos(ev).x;
+				var downPosY=getPos(ev).y;
+			}
+			
+			function fnMove(ev){
+				if(ev.targetTouches.length==2){
+					var movePosX=getPos(ev).x;
+					var movePosY=getPos(ev).y;
+					
+					x=movePosX-downPosX+oldX;
+					y=movePosY-downPosY+oldY;
+					
+					oDiv.style.WebkitTransform='translate3d('+x+'px,'+y+'px,0px)';
+				}
+				
+			}
+			
+			function fnEnd(){
+				document.removeEventListener('touchmove',fnMove,false);
+				document.removeEventListener('touchmove',fnEnd,false);	
+			}
+			
+			document.addEventListener('touchmove',fnMove,false);
+			document.addEventListener('touchend',fnEnd,false);
+			
+			ev.preventDefault();
+		},false);
+			
+	},false);
+</script>
+</head>
+
+<body>
+	<div class="box">文字</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

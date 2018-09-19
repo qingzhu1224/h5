@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery.js"></script>
+<script src="js/raphael.min.js"></script>
+<script src="js/arc.js"></script>
+<script>
+	$(function () {
+		var values = [30,56,23,235,123],
+			labels = ['哈哈哈','呵呵','一致','试一下','来一个'];
+		Raphael("holder", 700, 700).pieChart(350, 350, 200, values, labels, "#fff");
+	});
+</script>
+</head>
+
+<body>
+	<div id="holder"></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	canvas{ border:1px solid red; display:block; margin:50px auto;}
+</style>
+<script>
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		
+		var cx=200;
+		var cy=200;
+		var r=100;
+		oC.onmousedown=function(ev){
+			var eX=ev.clientX-oC.offsetLeft;
+			var eY=ev.clientY-oC.offsetTop;
+			
+			var a=cy-eY;
+			var b=cx-eX;
+			
+			var c=Math.sqrt(a*a+b*b);
+			
+			var disX=0;
+			var disY=0;
+			
+			if(c<=r){
+				document.onmousemove=function(ev){
+					gd.clearRect(0,0,oC.width,oC.height);
+					var moveX=ev.clientX-oC.offsetLeft;
+					var moveY=ev.clientY-oC.offsetTop;
+				 	disX=moveX-eX;
+					disY=moveY-eY;
+					gd.beginPath();
+					gd.arc(disX+cx,disY+cy,r,0,2*Math.PI,false);
+					gd.fill();
+					
+				};
+				
+				document.onmouseup=function(){
+					document.onmouseup=null;
+					document.onmousemove=null;
+					cx+=disX;
+					cy+=disY;
+				};
+				return false;
+			}
+			
+		};
+		
+		gd.arc(cx,cy,r,0,2*Math.PI,false);
+		gd.fill();
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>

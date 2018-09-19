@@ -1,0 +1,132 @@
+canvas
+	
+	var oC=document.querySelector('canvas');
+
+	1. var gd=oC.getContext('2d');
+
+	2. gd.moveTo(x,y);
+
+	3. gd.stroke()
+
+	4. gd.strokeStyle 
+
+	5. gd.lineWidth
+
+	6. gd.lineTo(x,y);
+
+	7. gd.fill(); 填充
+
+	8. gd.closePath(); 闭合路径
+
+	9. gd.beginPath(); 开启路径
+
+	10.gd.strokeRect(x,y,w,h); 描边矩形
+
+	11. gd.clearRect(x,y,w,h); 清画布
+
+	12. gd.font='30px 黑体'; 字体样式
+
+	13. gd.strokeText(str,x,y); 描边文字
+
+	14. gd.fillText(str,x,y); 填充文字
+
+	15. gd.textAlign='center/left/right'; 水平居中
+
+	16. gd.fillRect(); 填充矩形
+
+	17. gd.textBaseline='top/bottom/middle'; 垂直居中
+
+	18. gd.fillStyle='red'; 
+
+	19. gd.arc(cx,cy,r,start,end,false);
+
+	20. gd.measureText(str).width; 测量文字宽度
+---------------------------------------------------------------
+给canvas加事件
+
+	
+变形：在canvas中 变形是累加的
+	gd.rotate(1); 用弧度  
+	旋转中心点：默认在 画布的左上角
+
+	在定义旋转中心：必须将你的旋转中心点坐标写到画布左上角！
+
+	gd.save(); 保存画布的初始化状态
+
+	gd.restore(); 回到画布的初始状态
+
+-------------------------------------------------------------
+端点样式：
+     gd.lineCap='butt';
+     gd.lineCap='round';
+     gd.lineCap='square';
+
+连接点样式：
+     gd.lineJoin='bevel';
+     gd.lineJoin='round';
+
+阴影：
+     gd.shadowOffsetX=20;
+     gd.shadowOffsetY=20;
+     gd.shadowBlur=10;
+     gd.shadowColor='red';
+--------------------------------------------------------------
+
+渐变：
+	线性渐变：
+		创建渐变
+		var linearG=gd.createLinearGradient(100,120,300,320);
+
+		100 起始X坐标
+		120 起始Y坐标
+		300 结束X坐标
+		320 结束Y坐标
+
+		linearG.addColorStop(0,'red'); 起始颜色
+		linearG.addColorStop(1,'yellow'); 结束颜色
+		gd.fillStyle=linearG; 应用
+
+	径向渐变：
+		创建渐变
+		var radialG=gd.createRadialGradient(100,120,50,100,120,400);
+
+		100 中心点X坐标
+		120 中心点Y坐标
+		50  起始半径
+		400 结束半径
+
+		radialG.addColorStop(0,'red');
+		radialG.addColorStop(1,'blue');
+		gd.fillStyle=radialG;
+
+==============================================================
+导出图片：
+		var res=oC.toDataURL();
+		image/png   image/jpeg
+
+		oImg.src=res;
+
+----------------------------------------------------------
+画图
+	1. gd.drawImage(oImg,x,y,w,h);
+	2. gd.drawImgae(oImg,sx,sy,sw,sh,dx,dy,dw,dh);
+		1. source原图
+		2. destination 目标图
+
+----------------------------------------------------------
+引入图片：
+
+==========================================================
+面向对象：
+	
+准备素材：	
+
+
+
+	
+
+
+
+
+
+

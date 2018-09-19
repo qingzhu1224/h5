@@ -1,0 +1,376 @@
+语义化标签
+	header
+	footer
+	section
+	nav
+	article
+	aside
+
+	hgroup 标题组合
+
+	资源描述
+	figure 
+		figcaption 
+
+	time 时间标签
+
+	address 地址标签
+
+	mark 高亮显示
+
+	progress 进度条  max value
+
+	meter 进度条
+
+	dialog open 对话框
+
+	details 收缩菜单
+		summary 标题
+		p 子类
+
+多媒体标签
+	视频标签  video  src 引入资源
+		autoplay自动播放 
+		loop循环播放  
+		controls 控制台
+	音频标签  audio  src 引入资源
+		autoplay自动播放 
+		loop循环播放  
+		controls 控制台
+
+表单标签
+	number 
+	date
+	datetime
+	week
+	month
+	color
+	email
+	search
+	range
+	tel
+
+js	
+	H5选择器
+		document.querySelector('.box'); 选中一个对象
+		document.querySelectorAll('.box'); 选中一组对象
+
+	操作自定义属性
+		obj.dataset.a=12;
+
+		obj.dataset.a
+
+		delete obj.dataset.a
+
+	操作class
+		classList.add('box');
+
+		classList.remove('box');
+
+		classList.toggle('box');
+
+		classList.contains('box');
+
+	本地存储
+		cookie 4K 有过期时间 随服务器请求发送
+
+		localstorage 5M 没有过期时间 不随服务器请求发送
+		
+		localStorage.a=12;
+		localStorage.a
+		delete localStorage.a
+
+		localStorage.setItem('name','value');
+		localStorage.getItem('name');
+		localStorage.removeItem('name');
+		localStorage.clear();
+
+css3
+	属性选择器
+		li[index] 有index属性的标签
+
+		li[index~=a] index属性的值其中一个是a的标签
+
+		li[index=a] index值必须是a的标签
+
+		li[index^=a] 值的首字母是a的标签
+
+		li[index$=a] 值的尾字母是a的标签
+
+		li[index|=a] 以a-开头的值的标签
+
+		li[index*=a] 只要字符中含有a的标签
+
+	伪类选择器
+		obj:nth-child(1){};第一个标签
+		obj:nth-child(odd){}; 获取奇数个元素
+		obj:nth-child(even){}; 获取偶数个元素
+		obj:nth-child(n){}; 获取n的倍数个
+		obj:nth-child(2n){}; 获取2的倍数个
+		obj:nth-child(3n){}; 获取3的倍数个
+		...
+		obj:nth-child(2n-1){}; 获取奇数的倍数个
+		obj:nth-last-child(1){}; 倒数第一个元素
+-----------------------------------------------------
+CSS3 样式
+
+	圆角：
+		border-radius:10px;
+		border-radius:10px 20px;
+		border-radius:10px 20px 30px;
+		border-radius:10px 20px 30px 40px;
+		border-radius:10px 20px 30px 40px/40px 30px 20px 10px;
+
+	1块阴影：
+		box-shadow:-20px 10px 20px 30px blue inset;
+			-20px X轴偏移量
+			10px  Y轴偏移量
+			20px  模糊值
+			blue  阴影颜色
+			30px  阴影扩大值
+			inset 内阴影
+		box-shadow:10px      10px      10px   10px       blue     inset;
+			   X轴偏移量 Y轴偏移量 模糊值 阴影扩大值 阴影颜色 内阴影
+		能写多个阴影 加,号
+
+	2过渡：提供运动过程
+		transition:1s;  过渡1s
+		transition:all 1s ease; 所有样式 1s 缓冲运动
+
+	3变形：
+		transform 
+			rotate(360deg); 旋转 
+
+	4文字阴影：
+		text-shadow:10px 10px 10px red;
+
+		火烧字
+		打字效果(一个一个出现)
+
+	5文字描边：text-stroke:; (有前缀)
+		-webkit-text-stroke: 1px red;
+
+浏览器前缀：
+	-webkit-    chrome/safari苹果浏览器
+	-moz-       firefox
+	-ms-        IE
+	-o-         opera
+
+移动端：-webkit-
+	ios、安卓、windows
+
+	safari  chrome webkit
+------------------------------------------------
+	6定义动画帧
+		@keyframes loading{
+			0%{
+				margin-left:0;
+			}
+			100%{
+				margin-left:-200px;			
+			}	
+		}
+
+		调用动画帧
+		animation:loading 2s linear infinite;
+
+		loading 动画帧名称
+		2s      运动时间
+		linear  运动形式 匀速
+		infinite 无限运动
+
+------------------------------------------------------------------
+7渐变：
+	线性渐变：linear-gradient() (如果加方向有前缀)
+		background:linear-gradient(red,blue);
+
+		background:-webkit-linear-gradient(left,red,blue);
+
+		background:-webkit-linear-gradient(30deg,red,blue);
+
+		background:-webkit-linear-gradient(30deg,red 50px,green 100px,blue 100px);
+
+		background:-webkit-linear-gradient(top,red 20%,yellow 20%,yellow 40%,pink 40%,pink 60%,green 60%,green 80%,blue 80%);
+
+		循环渐变：
+		background:-webkit-repeating-linear-gradient(red 0px,red 10px,yellow 10px,yellow 20px);
+
+
+
+	径向渐变：radial-gradient()  (如果加方向有前缀)
+		background:radial-gradient(red,blue);
+
+		background:-webkit-radial-gradient(30px 50px,red,blue);
+
+		background:-webkit-radial-gradient( center center,red 20px,blue 40px,yellow 60px,pink 80px); 
+---------------------------------------------------
+	8蒙版：mask:url(); 只显示有颜色的地方，图片格式png:支持透明半透明
+		-webkit-mask:url(img/2.png);
+
+		-webkit-mask:url(img/5.png) no-repeat;
+
+		控制蒙版位置：
+		-webkit-mask-position:x y;
+
+	9背景：
+		默认背景图修改大小
+			background-size:100% 100%;
+			background-size:100px 200px;
+
+			background-size:contain; 图片全部显示 不一定占满父级
+			background-size:cover;   图片显示不全 占满父级
+
+		多背景：
+			background:url(img/1.png) no-repeat,url(img/2.png) no-repeat 100px 100px,url(img/3.png) no-repeat 200px 200px;
+
+		背景图起始位置：
+			background-origin:border-box;  边框
+			background-origin:content-box; 内容
+			background-origin:padding-box; padding（默认）
+
+		背景图生效/开切位置：
+			background-clip:padding-box; padding
+			background-clip:content-box; 内容
+			background-clip:border-box;  边框(默认)
+
+		文字背景图：文本开切
+		-weblit-background-clip:text; 文字 文字要透明color:rgba(0,0,0,0)
+------------------------------------------------------
+10倒影：
+	-webkit-box-reflect:below 10px linear-gradient(rgba(0,0,0,0) 60%,rgba(0,0,0,0.5));
+
+		below 向下 above left right
+		10px  倒影距离
+		渐变 显示百分比 linear-gradient  rgba(0,0,0,0)
+------------------------------------------------------
+滤镜：
+  -webkit-filter:blur(10px); 10px模糊值  (耗性能)
+
+-----------------------------------------------------
+缩放：div缩放
+	resize:both; 
+	overflow:auto;  配合使用
+
+文本排序：
+	 direction:rtl; 从右往左
+	 direction:ltr; 从左向右
+
+	 执行编码格式重设：
+	 unicode-bidi:bidi-override;   配合使用
+
+--------------------------------------------------
+文本截取：单行文本省略
+ 		text-overflow:ellipsis 文本省略
+        配合:white-space:nowarp; 文本不换行
+             overflow:hidden;
+--------------------------------------------------
+1. angular  3天 ng-click ng-repeat 页面上
+2. z-query  1天 复习 面向对象 
+3. jquery   2天 使用 
+4. 插件     jquery 插件 在jquery之内添加一个方法
+5. 模块化   sea.js require.js 按需加载 
+6. 面向对象 工厂模式 构造函数 new 
+7. ajax     会用 创建ajax http协议请求
+8. jsonp    会用 创建script 调取函数的参数 可以跨域
+9. 正则     \d 数字 \w 字母数字下划线 \s 空格 ?可有可无
+			[0-9a-z] {1,3} . ^ $ 
+
+			5-8 只能输入数字
+
+			^\d{5,8}$;
+
+			验证身份证号：网上查
+
+10. mvc     便于维护 m model v view c controller
+11. 算法    数据结构
+13. node/PHP 
+14. vue     K4的最后一周
+15. 高级运动 碰撞 弹性 
+16. 性能优化
+----------------------------
+1. dom
+2. 运动  忘了吧 jquery 
+3. 事件捕获 
+4. 事件绑定  
+5. 事件委托 
+6. 事件冒泡 
+
+-------------------------------
+1. bootstrap  http://www.bootcss.com/
+2. 兼容问题   IE6 
+3. less/sass 
+
+----------------------------------------------
+回去 找2个jquery插件 熟练使用！
+
+面向对象 周一
+
+算法数据结构 周二
+
+高级运动 周三
+
+周四：
+	domready
+	3. 事件捕获 
+	4. 事件绑定  
+	5. 事件委托 
+	6. 事件冒泡 
+	递归 自己调自己
+
+下周二白天 node/php
+
+vue     K4的最后一周
+
+sass
+http://www.w3cplus.com/sassguide/
+
+less
+http://less.bootcss.com/
+
+@mixin radius ($size) {
+    border-radius:$size;
+}
+
+.box-border{
+    border:1px solid #ccc;
+    @include radius(30px);
+}
+
+css3 动画 阴影 渐变 倒影 旋转 过渡 蒙版 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

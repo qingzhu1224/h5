@@ -1,0 +1,182 @@
+node php svg vml vue 
+获取地理位置 
+百度地图 
+多线程 
+webSql 
+重力感应
+
+------------------------------------------------
+node 
+	node 1.js
+
+	官网下载 
+	node -v 
+
+	npm -v 包管理器
+
+	构建： 文件打包  压缩
+
+grunt
+
+	安装grunt命令：
+		npm install -g grunt-cli
+
+	安装grunt
+		npm install grunt
+
+	必须得有俩个文件：
+		package.json  配置文件
+
+		Gruntfile.js  配置函数
+
+		插件列表：
+			http://www.gruntjs.net/plugins
+
+
+配置任务：
+	功能： 
+	1. 压缩js功能！
+		https://www.npmjs.com/package/grunt-contrib-uglify
+
+	定义任务流程：
+		1. 引入插件
+			grunt.loadNpmTasks('grunt-contrib-uglify');
+
+		2. 定义任务
+				grunt.initConfig({ //初始化配置
+					uglify(主任务):{
+						a(子任务):{
+						  src:'a/index.js',	//源文件地址
+						  dest:'dest/index.js' //目标文件地址
+						}	
+					}	
+				})
+
+		3. 注册默认任务
+		grunt.registerTask('default',['uglify','csssmin']);
+
+
+		src:'src/css/*.css',  代表css文件夹下的所有css文件
+
+
+		任务下的配置项：
+			expand:true,//文件是否分开
+			cwd:'src/css', //来源文件目录
+			src:'*.css',//来源文件名
+			dest:'dest/css',//目标目录
+			ext:'.min.css'//文件后缀名称
+
+执行任务：
+	grunt uglify:a
+		  主任务:子任务
+
+	grunt 回车
+
+---------------------------------------------------------
+html压缩
+	必须配置参数：去掉空格 、 去掉注释
+	options：{
+		removeComments:true;
+		collapseWhitespace:true;
+	}
+
+	js、css、html、img
+
+-----------------------------------------------------
+压缩img
+	imagemin:{
+	       a{
+	            cwd:'src/img'
+	            src:'*.{png,jpg,gif}',
+	            dest:'dest/image'
+	       }
+	  }
+
+
+----------------------------------------------------------
+监听模块：
+	安装监听模块：
+		npm install grunt-contrib-watch --save-dev
+
+	引入监听插件：
+		//引入监听插件
+		grunt.loadNpmTasks('grunt-contrib-watch');
+
+	配置监听任务：
+
+		watch:{
+			a:{
+				files:['src/js/*.js','src/css/*.css','文件名'],
+				tasks:['uglify','cssmin','任务名']	
+			}	
+		}
+---------------------------------------------------------
+生成package.json
+	只需 npm init  一路回车 不要停
+
+---------------------------------------------------------
+npm install 安装所有需要用的插件
+
+grunt  执行grunt默认任务
+
+--------------------------------------------------------
+gulp：
+	官网：http://www.gulpjs.com.cn/
+
+	插件库：https://www.npmjs.com/
+
+	1. 压缩js
+
+		1. 安装插件
+		npm install --save-dev gulp-uglify 
+
+		npm install gulp-minify-css;
+
+
+		2. 导入模块
+			var gulp=require('gulp');
+
+
+
+		3. 配置函数：
+			//导入模块js压缩
+			var uglify_js=require('gulp-uglify');
+
+			//配置任务
+			gulp.task('uglify',function(){
+				
+				gulp.src('src/js/*.js').
+				pipe(uglify_js()).
+				pipe(gulp.dest('dest/js/'));	
+			});
+
+
+			//注册默认任务
+			gulp.task('default',['uglify']);
+--------------------------------------------------
+	
+	npm 官网:https://www.npmjs.com
+
+=================================================
+补课：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

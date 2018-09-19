@@ -1,0 +1,215 @@
+移动端开发
+	布局
+		前端 H5开发
+
+	PC端和移动端区别：
+			屏幕大小
+			系统平台
+			操作方式
+
+	js特效
+
+		手机品牌：
+			华为，oppo，vivo，小米，苹果，三星node7，魅族，锤子，美图，乐视，联想，中兴，360，LG，TCL，金立，HTC，努比亚，zuk，黑莓，酷派
+
+		适应屏幕显示，足够的适应能力，不写死宽
+
+		百分比：根据父级的宽度自适应，边框多出来的时候
+			box-sizing:border-box; 内盒子大小
+
+			box-sizing:content-box;外盒子大小
+-----------------------------------------------------------
+百分比布局：
+		box-sizing:border-box;
+		calc(100%/3) 计算方式
+			+ - * /  加减左右必须有空格
+			         乘除不用加单位
+固定宽度布局：
+	相对固定：设置一个宽度范围
+		    min-width: 320px;
+   			max-width: 640px;
+
+   	手机主流分辨率:320-640 //小辣椒1024
+
+表格布局：
+	父级：
+		display:table;
+	子级：
+		display:table-cell;
+
+弹性盒子：
+	父级：
+		display:-webkit-box; 弹性盒子
+	子级：
+		-webkit-box-flex:4; 当前所占数字/总数 宽度
+		必须设置一个width:100px; 
+
+	会自适应 ，但是可以控制宽度
+----------------------------------------------------------
+移动端小页面：
+	F12 手机模拟器 
+
+	移动端开发：文档声明
+		<meta name="viewport" 
+			content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+
+		name="viewport" 设置视口样式
+		content 内容
+			width=device-width 将宽度设置成设备宽度
+			initial-scale=1.0; 不缩放页面
+			user-scalable=no; 禁止用户缩放页面
+			maximum-scale=1.0; 最大缩放比例 华为mate7
+-----------------------------------------------------------
+其他声明：
+	<!---允许网页以app形式运行(允许添加到主屏幕)--->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!---状态栏颜色--->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!---禁止识别电话号码和邮箱--->
+    <meta name="format-detection" content="telephone=no,email=no">
+
+    <!--点击页面区域全屏展示--->
+    <meta content="yes" name="apple-touch-fullscreen"/>
+
+    <!--应用信息，保留系统历史记录，运动效果-->
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes"/>
+
+其他meta:
+	<!-- 强制让360浏览器用chrome内核渲染页面 -->
+	<meta name="renderer" content="webkit">
+	<!-- 尽量用IE最新的模式渲染 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">
+	<!-- 微软的老式浏览器 -->
+	<meta name="MobileOptimized" content="320">
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC应用模式 -->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+------------------------------------------------------
+开发移动端 测试方式：
+
+	1. 本地浏览器下模拟 F12  
+	2. 电脑和手机处于同一个网段 笔记本 手机 用路由器
+		1.访问本机电脑IP cmd -> ipconfig 查看IP
+
+	3. 上传到第三方服务器访问 输入网址用手机访问
+		 1.新浪云，github
+------------------------------------------------------
+	1. 流体布局
+		1. 百分比 + float
+
+	2. 固定宽度
+		1. min-width
+		2. max-width 
+
+	3. rem布局 90%
+		 3em = 3*16 px
+
+		 字体的font-size:20px;
+			自身标签上的字体大小会影响，1em相对单位
+
+		 px绝对单位
+
+		 rem 相对单位 ？html{ font-size:30px;}
+
+		 html根标签，rem受根标签的字体大小控制的！稳定
+----------------------------------------------------
+	chrome -最小字体大小 12px 
+
+	rem布局（相对单位布局）
+		相对 自适应 稳定 写好的值不用改 就改html字体大小
+
+	给你一个px值 转成 rem ？
+		   60/16 = 3.75rem;
+
+		   320/10 = 375/? = 414/?
+
+	document.documentElement.style.fontSize=30+'px';
+
+给html标签 设置font-size:
+	document.documentElement.style.fontSize=20/320*document.documentElement.clientWidth+'px';
+
+remjs函数：
+
+	(function(win,doc){
+		win.addEventListener('resize',change,false);
+		change();
+		function change(){
+			doc.documentElement.style.fontSize=20/320*doc.documentElement.clientWidth+'px';	
+		}	
+	})(window,document);
+
+	20 ？好算 1rem=20px;
+	10        1rem=10px;
+	50   	  1rem=50px;
+	62.5%     1rem=10px;	16*0.625=10  
+
+--------------------------------------------------------
+网页宽度移动端：一定要比设计图小
+
+ 	设计图是 640px -> 320px 高清 2倍图
+ 			 750px -> 375px
+ 			 480px -> 320px  1.5倍图
+ 			 1024px -> 375px  极少
+
+ 	1. 量图出来的值 先除以2
+
+ 	2. 再除以20 可以算出 rem值
+----------------------------------------------------
+	
+
+
+
+
+
+
+	
+
+		   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

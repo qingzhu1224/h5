@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+<title>无标题文档</title>
+
+<style>
+	div{ display:none;}
+	.box{ display:block; width:200px; height:200px; background:red; margin:100px auto; 
+	}
+	
+	.move{animation:shake 0.4s linear 4;}
+	
+	@keyframes shake{
+		0%{
+			transform:rotate(0deg);	
+		}
+		25%{
+			transform:rotate(10deg);	
+		}
+		50%{
+			transform:rotate(0deg);	
+		}	
+		75%{
+			transform:rotate(-10deg);	
+		}
+		100%{
+			transform:rotate(0deg);	
+		}
+	}
+	
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.querySelector('.box');
+		oBox.onclick=function(){
+			this.classList.add('move');	
+		};
+		
+		//运动完毕 兼容写法 webkitAnimationEnd
+		oBox.addEventListener('webkitAnimationEnd',function(){
+			//alert('完了');
+			oBox.classList.remove('move');
+				
+		},false)
+			
+	};
+</script>
+</head>
+
+<body>
+	<div class="box"></div>
+</body>
+</html>

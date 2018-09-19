@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	
+</style>
+<script>
+	window.onload=function(){
+		var oInp=document.querySelector('input');
+			
+			//alert(localStorage.getItem('msg'));
+			oInp.value=localStorage.getItem('msg');
+			
+			oInp.onkeyup=function(){
+				//localStorage.msg=this.value;
+				localStorage.setItem('msg',this.value);
+				
+			};
+	};
+</script>
+</head>
+
+<body>
+	<input type="text" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

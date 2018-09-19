@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	canvas{ border:1px solid red; display:block; margin:50px auto;}
+</style>
+<script>
+	function d2a(n){
+		return Math.PI/180*n;
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		var oImg=document.querySelector('img');
+		
+		gd.drawImage(oImg,100,100,100,167);
+		
+	};
+</script>
+</head>
+
+<body>
+	<img src="1.jpg" />
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>

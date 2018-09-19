@@ -1,0 +1,418 @@
+张志宝
+	志宝 K4讲师
+
+	爱扯
+	容易发脾气
+	平翘舌不分
+-----------------------------------------------
+	碰撞运动 弹性运动
+
+	K3 算法 数据结构  php/node
+------------------------------------------------
+	H5
+		H5 基础
+
+		移动端开发
+
+		绘图canvas/svg
+
+		框架 vue
+---------------------------------------------------
+	H5标签 和 css3 
+
+		HTML5+css3.0
+
+		HTML4+css2.0
+
+	H5文档：默认严格
+		<!doctype html>
+
+	H4文档头：
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+		Transitional 过渡型
+
+		<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+		strict 严格型 
+
+	以后不用兼容IE8 
+-----------------------------------------------
+	H5技术 chrome firefox
+
+		语义化 标签都有各自的含义
+
+			1. 专业
+
+			2. 省钱 网站搜索排名靠前
+
+			   优化 网页 的seo 搜索引擎  
+
+		<header>网站头部</header>
+	    <section>网站主体</section>
+	    <footer>网站尾部</footer>
+
+
+	    <nav>
+        	<ul>
+            	<li><a href="#">内容</a></li>
+                <li><a href="#">内容</a></li>
+                <li><a href="#">内容</a></li>
+                <li><a href="#">内容</a></li>
+            </ul>
+        </nav>
+        
+        <nav>
+        	<a href="#">内容</a>
+            <a href="#">内容</a>
+            <a href="#">内容</a>
+            <a href="#">内容</a>
+            <a href="#">内容</a>
+        </nav>
+
+        <article>
+        	<h3>文章标题</h3>
+            <p>111</p>
+            <p>111</p>
+            <p>111</p>
+            <p>111</p>
+        </article>
+        <aside>
+        	侧边栏
+        </aside>
+
+        header 头部标签
+        footer 尾部标签
+        section 模块 比div结构型大
+        nav  导航
+        article 文章
+        aside 侧边栏 
+-------------------------------------------
+	<hgroup></hgroup>    标题组合
+
+		<hgroup>
+        	<h2>大标题</h2>
+    		<h3>文章标题</h3>
+    		<h3>文章标题</h3>
+    		<h3>文章标题</h3>
+    		<h3>文章标题</h3>
+        </hgroup>
+-------------------------------------
+       figure   资源组合
+        	    src
+       			img src
+       	语义化：
+        <figure>
+	        <img src="img/1.jpg" 
+	        	title="文字描述" alt="资源描述" />
+	        <figcaption>资源描述</figcaption>
+	    </figure>
+
+	    时间标签：
+	    <time>2016-11-8</time>
+
+	    联想显示列表：
+	    <input type="text" list="id" />
+	    <datalist id="id">
+	    	<option>apple</option>
+	        <option>pen</option>
+	        <option>banana</option>
+	        <option>orange</option>
+	    </datalist>
+
+	    收缩菜单：
+	    <details>
+	    	<summary>这是一个标题</summary>
+	        <p>这是它的内容</p>
+	    </details>
+
+	    对话框：  显示对话框 ：open
+	    <dialog open>对话框</dialog>
+
+	    地址：
+	    <address>北京昌平区平西王府宏福大厦3层</address>
+
+	    标记:高亮显示
+	    <mark>文字高亮</mark> strong em
+
+	    动态加载过程：
+	    <progress></progress>
+
+	    进度条：不能修改样式
+	    <progress max="100" value="50"></progress>
+
+	    	max="100"  最大显示值
+	    	value="50" 当前所占值
+
+	    进度条：不支持背景色修改
+	    <meter max="100" value="90" style="width:300px; height:50px;"></meter>
+--------------------------------------------------
+	用js实现兼容：兼容IE6/7/8
+		<script src="js/html5shiv.min.js"></script>
+
+	字体样式：
+		font-face  css样式：字体图标 
+
+	字体图标：
+		http://www.iconfont.cn/plus
+
+------------------------------------------------
+
+H4标准之内：
+	<input type="button" />
+    <input type="radio" />
+    <input type="checkbox" />
+    <input type="text" />
+    <input type="submit" />
+    <input type="password" />
+    <input type="reset" /> 重置
+    <input type="image" /> 图片按钮
+
+	H5表单属性：移动端 功能：
+		数字输入框：
+		<input type="number" min="0" max="1" /> 
+
+			step="2" 增减基数
+
+		颜色选择器：
+		<input type="color" />
+
+		日期选择器：
+		<input type="date" />
+
+		日期输入框：
+		<input type="datetime" />
+
+		email输入框：
+		<input type="email" />
+
+		拖拽条：
+		<input type="range" value="1" max="100" />
+
+		搜索框：
+		<input type="search" />
+
+		拨号键盘：
+		<input type="tel" />
+
+		选择周时间选择器：
+		<input type="week" />
+
+		选择月时间选择器：
+		<input type="month" />
+input样式：input:focus{}焦点样式
+		   input:disabled{}  (点击无用之后的样式)；
+------------------------------------------------
+视频标签：
+	<video src="mp4/1.mp4" controls></video>
+
+	src="mp4/1.mp4" 资源路径
+
+	controls 显示控制器
+
+	autoplay 自动播放
+
+	loop  循环播放
+
+音频标签：
+	<audio src="mp3/a.mp3" controls></audio>
+
+================================================
+	js选择器：
+		ID选择器 
+			document.getElementById('id');
+		class选择器
+			document.getElementsByClassName('class');
+		tagName选择器
+			document.getElementsByTagName('tagName');
+		name选择器 只能获取表单元素
+			document.getElementsByName('name');
+
+		子级选择器：一组
+			obj.children;
+
+		父级选择器：一个
+			obj.parentNode;
+
+	H5选择器：可以直接使用css选择器
+
+		选择一个对象：
+		var oDiv=document.querySelector(css选择器);
+
+		选择一组对象：
+		var oDiv=document.querySelectorAll('.box');
+
+
+		标签
+		class
+		id
+		嵌套  div p
+		群组  div,p
+		筛选  div.box
+		直接子级选择器 div>p
+		通配符 *
+---------------------------------------------------
+自定义属性：
+	H5 严谨定义自定义属性的方法
+
+		data-index
+
+		自定义属性 那 前面 必须加一个前缀 data-
+
+		oDiv.getAttribute('data-index') 获取属性
+		oDiv.setAttribute('data-abc','123'); 设置属性
+		this.removeAttribute('class'); 删除属性
+
+		js独有的设置方案：
+			//设置自定义属性
+			oDiv.dataset.abc='666';
+
+			//获取自定义属性
+			alert(oDiv.dataset.index);
+
+			//删除自定义属性
+			delete oDiv.dataset.index;
+-----------------------------------------------
+	操作class
+		//添加class
+		this.classList.add('show','hhh');
+
+		//删除class
+		this.classList.remove('a','b');
+
+		//切换class
+		this.classList.toggle('show');
+
+		//是否包含class boolean 
+		this.classList.contains('box2');
+----------------------------------------------------
+本地存储：
+	浏览器保存数据的仓库
+
+	cookie 兼容 容量小4K 有过期时间 随服务器发送
+
+	localstorage 兼容一般 容量5M 没有过期时间 不随着服务器发送
+
+---------------------------------------------
+	保存文本框数据
+
+		//设置本地存储
+			localStorage.a=12;
+
+		//获取
+			localStorage.a
+
+		//删除
+			delete localStorage.a
+
+		//清空本地存储
+			localStorage.clear();
+
+	//设置
+	  localStorage.setItem('a',5);
+	//获取
+      localStorage.getItem('a');
+    //删除
+      localStorage.removeItem('a');
+
+小练习：
+      记录拖拽的div
+      换肤
+-------------------------------------------------
+CSS3 
+	选择器：
+
+		1. 属性选择器
+			1）. li[index] 有index属性的标签
+			2. li[index~=abc] 包含
+			3. li[index^=a] 首字母 
+			4. li[index$=a] 尾字母
+			5. li[index|=a] 以a-开头的元素 a-abcs
+			6）. li[index=a]等于
+			7. li[index*=a] 包含字母a  只要字符中含有a的标签
+
+		2. 伪类选择器
+			1. obj:nth-child(1){} 根据下标获取元素
+			2. obj:nth-child(odd){} 奇数个
+			3. obj:nth-child(even){} 偶数个
+			4. obj:nth-child(n){} n的倍数
+			5. obj:nth-child(2n){} 2的倍数
+			6. obj:nth-child(2n-1){} 奇数的倍数
+			7. obj:nth-last-child(1){} 从后往前数
+
+			p:first-child 第一个元素
+			p:last-child 最后一个元素
+
+			p:first-line{ color:red;} 第一行字
+			p:first-letter{ font-size:50px;} 第一个字
+			p::selection{ background:red; color:#ff0;}
+			选中文字的样式 红底黄字；
+			p:empty{};空 把没有内容的p干。。。。
+			p:nth-of-type(n);第n个标签
+--------------------------------------------------
+	css3样式：
+		圆角：
+			border-radius:10px;
+			border-radius:20px 0;
+			border-radius:20px 0 20px;
+			border-radius:20px 0 20px 0;
+			左上 右上 右下 左下
+
+			border-radius:20px 0 20px 0/10px 20px 30px 40px;
+			左上 右上 右下 左下 X轴半径/Y轴半径
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

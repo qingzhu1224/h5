@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	ul{ border:1px solid blue; overflow:hidden;}
+	li{ width:200px; height:200px; background:red; float:left; margin:10px;}
+</style>
+<script>
+	//事件委托 自己的父级 
+	//1万个li 加点击事件 
+	//把事件加给ul 
+	
+	window.onload=function(){
+		var oBtn=document.getElementsByTagName('input')[0];
+		var oUl=document.getElementsByTagName('ul')[0];
+		
+		var i=0;
+		oBtn.onclick=function(){
+			i++;
+			var oLi=document.createElement('li');
+			oLi.innerHTML='第'+i+'个LI';
+			oUl.appendChild(oLi);
+		};
+		
+		oUl.onclick=function(ev){
+			var ev=ev||event;
+			var obj=ev.srcElement||ev.target;
+			if(obj.tagName=='UL')return;
+			obj.style.background='yellow';	
+		};
+		
+		
+	};
+	
+	
+	
+	
+	
+	
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮" />
+	<ul>
+    </ul>
+</body>
+</html>

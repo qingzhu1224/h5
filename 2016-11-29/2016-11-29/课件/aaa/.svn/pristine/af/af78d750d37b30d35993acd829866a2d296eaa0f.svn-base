@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0"/>
+<title>无标题文档</title>
+<style>
+	div{ display: none; }
+	.box{ width:200px; height:200px; background:red; margin:100px auto; font-size:30px; color:#FFF; text-align:center; display: block;}
+</style>
+<script>
+	function a2d(n){
+		return 180/Math.PI*n;
+	}
+
+	document.addEventListener('DOMContentLoaded',function(){
+		var oDiv=document.querySelector('div');
+	
+		var x=0;
+		var y=0;
+		var s=1;
+		var d=0;
+		document.addEventListener('touchstart',function(ev){
+			var oldX=x;
+			var oldY=y;
+			var oldS=s;
+			var oldD=d;
+			function getPos(ev){
+				var x1=ev.targetTouches[0].clientX;
+				var y1=ev.targetTouches[0].clientY;
+				var x2=ev.targetTouches[1].clientX;
+				var y2=ev.targetTouches[1].clientY;
+				
+				var x=(x1+x2)/2;
+				var y=(y1+y2)/2;
+				
+				return {x:x,y:y};
+			}
+			
+			function getS(ev){
+				var x1=ev.targetTouches[0].clientX;
+				var y1=ev.targetTouches[0].clientY;
+				var x2=ev.targetTouches[1].clientX;
+				var y2=ev.targetTouches[1].clientY;
+				
+				var a=x2-x1;
+				var b=y2-y1;
+				
+				var c=Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+				
+				return c;
+			}
+			
+			function getD(ev){
+				var x1=ev.targetTouches[0].clientX;
+				var y1=ev.targetTouches[0].clientY;
+				var x2=ev.targetTouches[1].clientX;
+				var y2=ev.targetTouches[1].clientY;
+				var a=x1-x2;
+				var b=y2-y1;
+				
+				var d=Math.atan2(b,a);
+				
+				return a2d(d);
+			}
+			
+			if(ev.targetTouches.length==2){
+				var downPosX=getPos(ev).x;
+				var downPosY=getPos(ev).y;
+				var downS=getS(ev);
+				var downD=getD(ev);
+			}
+			
+			function fnMove(ev){
+				if(ev.targetTouches.length==2){
+					var movePosX=getPos(ev).x;
+					var movePosY=getPos(ev).y;
+					var moveS=getS(ev);
+					var moveD=getD(ev);
+					
+					x=movePosX-downPosX+oldX;
+					y=movePosY-downPosY+oldY;
+					s=moveS/downS*oldS;
+					d=downD-moveD+oldD;
+					
+					oDiv.style.WebkitTransform='scale('+s+') translate3d('+x+'px,'+y+'px,0px) rotate('+d+'deg)';
+				}
+				
+			}
+			
+			function fnEnd(){
+				document.removeEventListener('touchmove',fnMove,false);
+				document.removeEventListener('touchmove',fnEnd,false);	
+			}
+			
+			document.addEventListener('touchmove',fnMove,false);
+			document.addEventListener('touchend',fnEnd,false);
+			
+			ev.preventDefault();
+		},false);
+			
+	},false);
+</script>
+</head>
+
+<body>
+	<div class="box">文字</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

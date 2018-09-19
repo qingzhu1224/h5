@@ -1,0 +1,427 @@
+<!doctype html><html><head><meta charset="utf-8"><title>无标题文档</title><link rel="stylesheet" href="css/base.css"><link rel="stylesheet" href="css/index.css"><script src="js/jquery-1.8.3.min.js"></script><script type="text/javascript" src="js/echarts.min.js"></script><script type="text/javascript" src="js/index.js"></script></head><body><div class="con_box postion"><div class="nav_menu"><ul id="menu"><li class=""><a href="#page1" class="num1"></a></li><li><a href="#page2" class="num2"></a></li><li><a href="#page3" class="num3"></a></li><li><a href="#page4" class="num4"></a></li><li><a href="#page5" class="num5"></a></li><li><a href="#page6" class="num6"></a></li><li class=""><a href="#page7" class="num7"></a></li></ul></div><div class="bill_box"><div class="header"><a href="#"><h3 id="logo">南京理工大学</h3></a></div><div class="bill_tit"><h2>2015-2016<span>学年度第二学期</span></h2><h2 class="bill_tit_name">一卡通消费账单</h2></div><div class="content_list top250 postion"><div class="bill_all currency_style"><div class="card" id="card_event"><img src="images/car_icon_03.png" alt=""></div><img src="images/num1.jpg" alt=""><div class="subset_style"><div class="sub_tit"><h3 class="all_tit">一卡通消费账单总表</h3></div><div class="all_echarts_box"><div id="all_echarts" class="all_echarts"></div></div></div></div><div class="bill_canteen currency_style"><img src="images/num2.jpg" alt=""><div class="subset_style"><div class="sub_tit sub_center"><h3 class="">食堂消费情况</h3><p class="tit_english">Canteen consumption</p></div><div class="prompt_event prompt_one"><div class="prompt_canteen prompt"><i class="r_triangle"></i><p>本学期食堂消费总金额超过<span class="dark_orange">86.2%</span><br>的在校同学</p></div></div></div><div class="share_right rightbar"><ul class="category top5"><li><p class="subtitle gray"><i></i>本学期食堂消费总金额</p><p class="money black0"><span class="">4,032</span>元</p><div class="rightbar-icon"><i class="orange_pig1"></i></div></li><li><p class="subtitle gray"><i></i>光顾人数最多的食堂</p><p class="money black0 bold">第1食堂</p><div class="rightbar-icon"><i class="orange_frequency1"></i></div></li><li><p class="subtitle gray"><i></i>本学期食堂消费总次数</p><p class="money black0"><span class="">300</span>元</p><div class="rightbar-icon"><i class="orange_canteen1"></i></div></li></ul></div><div class="echarts_style clear"><div class="left"><div class="list_echarts" id="bill_canteen"></div></div><div class="right img_box"><img src="images/people1.jpg" alt=""></div></div></div><div class="bill_supermarket currency_style"><img src="images/num3.jpg" alt=""><div class="subset_style"><div class="sub_tit sub_center"><h3 class="">超市消费情况</h3><p class="tit_english">Supermarket consumption</p></div><div class="prompt_event prompt_two"><div class="prompt_supermarket prompt"><i class="l_triangle"></i><p>本学期超市消费总金额超过<span class="dark_green">86.2%</span>的在校同学</p></div></div></div><div class="share_right rightbar" style="top:-1px"><ul class="category top5"><li class="double"><p class="subtitle gray"><i></i>本学期超市消费总金额</p><p class="money black0"><span class="">4,032</span>元</p><div class="rightbar-icon"><i class="green_pig1"></i></div></li><li class="double"><p class="subtitle gray"><i></i>本学期超市消费总次数</p><p class="money black0"><span class="">300</span>元</p><div class="rightbar-icon"><i class="green_frequency1"></i></div></li></ul></div><div class="echarts_style clear"><div class="left"><div class="list_echarts" id="bill_supermarket"></div></div><div class="right img_box"><img src="images/people2.jpg" alt=""></div></div></div><div class="bill_hospital currency_style"><img src="images/num4.jpg" alt=""><div class="subset_style"><div class="sub_tit sub_center"><h3 class="">医院消费情况</h3><p class="tit_english">Hospital consumption</p></div><div class="prompt_event prompt_three"><div class="prompt_supermarket prompt"><i class="l_triangle"></i><p>本学期医院消费总金额超过<span class="dark_blue">86.2%</span>的在校同学</p></div></div></div><div class="share_right rightbar"><ul class="category top5"><li class="double"><p class="subtitle gray"><i></i>本学期医院消费总金额</p><p class="money black0"><span class="">4,032</span>元</p><div class="rightbar-icon"><i class="blue_pig1"></i></div></li><li class="double"><p class="subtitle gray"><i></i>本学期医院消费总次数</p><p class="money black0"><span class="">300</span>元</p><div class="rightbar-icon"><i class="blue_frequency1"></i></div></li></ul></div><div class="echarts_style clear"><div class="left"><div class="list_echarts" id="bill_hospital"></div></div><div class="right img_box"><img src="images/people3.jpg" alt=""></div></div></div><div class="bill_water currency_style"><img src="images/num5.jpg" alt=""><div class="subset_style"><div class="sub_tit sub_center"><h3 class="">用水消费情况</h3><p class="tit_english">Consumption of water</p></div><div class="prompt_event prompt_four"><div class="prompt_water prompt"><i class="l_triangle"></i><p>本学期用水消费<span class="dark_orange number_width font32">40</span>吨</p></div></div></div><div class="share_right rightbar"><ul class="category top5"><li class="double"><p class="subtitle gray"><i></i>本学期用水消费总金额</p><p class="money black0"><span class="">4,032</span>元</p><div class="rightbar-icon"><i class="orange_pig2"></i></div></li><li class="double"><p class="subtitle gray"><i></i>基于全校平均消费的前</p><p class="money black0"><span class="">300</span>%</p><div class="rightbar-icon"><i class="orange_frequency2"></i></div></li></ul></div><div class="echarts_style clear"><div class="left"><div class="list_echarts" id="bill_water"></div></div><div class="right img_box"><img src="images/people4.jpg" alt=""></div></div></div><div class="bill_dormitory currency_style"><img src="images/num6.jpg" alt=""><div class="subset_style"><div class="sub_tit sub_center"><h3 class="">宿舍用电消费情况</h3><p class="tit_english">Electricity consumption</p></div><div class="prompt_event prompt_five"><div class="prompt_water prompt"><i class="l_triangle"></i><p>本学期宿舍用电消费<span class="dark_green number_width2 font32">40</span>kwh</p></div></div></div><div class="share_right rightbar"><ul class="category top5"><li class="double"><p class="subtitle gray"><i></i>相当于经历了冰桶挑战进行发电</p><p class="money black0"><span class="">4,032</span>次</p><div class="rightbar-icon"><i class="green_pig2"></i></div></li><li class="double"><p class="subtitle gray"><i></i>相当于1盏路灯持续点亮</p><p class="money black0"><span class="">160</span>小时</p><div class="rightbar-icon"><i class="green_frequency2"></i></div></li></ul></div></div><div class="bill_nearby currency_style"><img src="images/num7.jpg" alt=""><div class="subset_style"><div class="prompt_event prompt_six"><div class="prompt_canteen prompt"><i class="l_triangle"></i><p>去认识下我们身边最熟悉的陌生人吧，新的学期然我们有更多的可能！</p></div></div></div><div class="show_click show_style"><img src="images/animation1.gif" alt=""></div><div class="left-bg"></div><div class="box-two"></div><div class="box-one" style=""><div class="line-bg"></div><div class="littie-man-wrap littie-man0"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg0.png" alt="" class="circle-bg"> <img src="images/lp0.png" alt="" class="lp"><div class="littie-man-said dn"><p>尹同学 (会计学院)</p><p>相遇地点：超市</p><p>相遇次数：4次</p></div></div><div class="littie-man-wrap littie-man1"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg1.png" alt="" class="circle-bg"> <img src="images/lp1.png" alt="" class="lp"><div class="littie-man-said dn"><p>高同学 (外经贸学院纺织科学与工程系)</p><p>相遇地点：超市</p><p>相遇次数：3次</p></div></div><div class="littie-man-wrap littie-man2"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg2.png" alt="" class="circle-bg"> <img src="images/lp2.png" alt="" class="lp"><div class="littie-man-said dn"><p>李同学 (电子与电气工程学院)</p><p>相遇地点：超市</p><p>相遇次数：3次</p></div></div><div class="littie-man-wrap littie-man3"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg3.png" alt="" class="circle-bg"> <img src="images/lp3.png" alt="" class="lp"><div class="littie-man-said dn"><p>章同学 (国际教育学院)</p><p>相遇地点：食堂</p><p>相遇次数：21次</p></div></div><div class="littie-man-wrap littie-man4"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg4.png" alt="" class="circle-bg"> <img src="images/lp4.png" alt="" class="lp"><div class="littie-man-said dn"><p>陶同学 (电子与电气工程学院)</p><p>相遇地点：食堂</p><p>相遇次数：16次</p></div></div><div class="littie-man-wrap littie-man5"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg5.png" alt="" class="circle-bg"> <img src="images/lp5.png" alt="" class="lp"><div class="littie-man-said dn"><p>徐同学 (机械工程与自动化学院)</p><p>相遇地点：食堂</p><p>相遇次数：16次</p></div></div><div class="littie-man-wrap littie-man6"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg6.png" alt="" class="circle-bg"> <img src="images/lp6.png" alt="" class="lp"><div class="littie-man-said dn"><p>何同学 (机械工程与自动化学院)</p><p>相遇地点：食堂</p><p>相遇次数：18次</p></div></div><div class="littie-man-wrap littie-man7"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg7.png" alt="" class="circle-bg"> <img src="images/lp7.png" alt="" class="lp"><div class="littie-man-said dn littie-man-said-top"><p>徐同学 (会计学院)</p><p>相遇地点：食堂</p><p>相遇次数：17次</p></div></div><div class="littie-man-wrap littie-man8"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg8.png" alt="" class="circle-bg"> <img src="images/lp8.png" alt="" class="lp"><div class="littie-man-said dn littie-man-said-top"><p>严同学 (经济学院)</p><p>相遇地点：食堂</p><p>相遇次数：17次</p></div></div><div class="littie-man-wrap littie-man9"><img src="images/bg-circle.png" alt="" class="circle-bg-border"> <img src="images/bg9.png" alt="" class="circle-bg"> <img src="images/lp9.png" alt="" class="lp"><div class="littie-man-said dn littie-man-said-top"><p>叶同学 (电子与电气工程学院)</p><p>相遇地点：食堂</p><p>相遇次数：17次</p></div></div></div></div></div><div class="footer"><p>版权所有：北京希嘉创智教育科技有限公司</p></div></div></div><a href="javascript:;" class="go-back"><i></i></a><script type="text/javascript">//总消费账单
+	echarts.init(document.getElementById('all_echarts')).setOption(
+		option = {
+	      color:['#b77cb6','#ed1e78','#f4ac02','#93c647','#1983b7'],
+	      title:{
+	        //text:'总学分统计',  
+	        textStyle:{
+	            //color:'#00c6ff',
+	            fontSize:13
+	        },
+	        left:'',
+	      },
+	      tooltip: {
+	          trigger: 'item',
+	          formatter: "{a} <br/>{b}: {c} ({d}%)"
+	      },
+	      legend: {
+	          orient: 'vertical',
+	          x: 'left',
+	          y:'10%',
+	          //data:['及格','优秀','未及格']
+	      },
+	      series: [
+	          {
+	              name:'',
+	              type:'pie',
+	              radius: ['40%', '85%'],
+	              center : ['50%', '50%'],
+	              avoidLabelOverlap: false,
+	              labelLine: {
+	                  normal: {
+	                      show: true
+	                  }
+	              },
+	              data:[
+	                  {
+	                      value:100, 
+	                      name:'用电',
+	                      label: {
+	                      normal:{
+	                          show: true,
+	                          formatter: "{d}% \n ￥{c}",
+	                          position:'inside',
+	                          textStyle:{
+	                            fontSize: 14,
+	                            color:'#fff'
+	                          }
+	                        }
+	                      }
+	                  },
+	                  {
+	                      value:30, 
+	                      name:'用水',
+	                      //selected:true,
+	                      label: {
+	                        normal:{
+	                          show: true,
+	                          formatter: "{d}% \n ￥{c}",
+	                          position:'inside',
+	                          textStyle:{
+	                            fontSize: 14,
+	                            color:'#fff'
+	                          }
+	                        }
+	                      }
+	                  },
+	                  {
+	                      value:60, 
+	                      name:'医院',
+	                      //selected:true,
+	                      label: {
+	                        normal:{
+	                          show: true,
+	                          formatter: "{d}% \n ￥{c}",
+	                          position:'inside',
+	                          textStyle:{
+	                            fontSize: 14,
+	                            color:'#fff'
+	                          }
+	                        }
+	                      }
+	                  },
+	                  {
+	                      value:160, 
+	                      name:'超市',
+	                      //selected:true,
+	                      label: {
+	                        normal:{
+	                          show: true,
+	                          formatter: "{d}% \n ￥{c}",
+	                          position:'inside',
+	                          textStyle:{
+	                            fontSize: 14,
+	                            color:'#fff'
+	                          }
+	                        }
+	                      }
+	                  },
+	                  {
+	                      value:200, 
+	                      name:'食堂',
+	                      //selected:true,
+	                      label: {
+	                        normal:{
+	                          show: true,
+	                          formatter: "{d}% \n ￥{c}",
+	                          position:'inside',
+	                          textStyle:{
+	                            fontSize: 14,
+	                            color:'#fff'
+	                          }
+	                        }
+	                      }
+	                  }
+	              ]
+	          }
+	      ]
+	    }   		
+	);
+	//食堂消费
+	echarts.init(document.getElementById('bill_canteen')).setOption(
+		option = {
+		    color: ['#98c9e7', '#ee6716'],
+		    title: {
+		      text: '本学期消费趋势图',
+		      left: 'center',
+			  top:'15',
+		      textStyle: {}
+		    },
+		    tooltip: {
+		      trigger: 'axis'
+		    },
+		    legend: {
+		      x: 'right',
+			  y:'15',
+		      data: ['全校平均消费', '我的消费']
+		    },
+		    grid: {
+		      //top:'14%',
+		      left: '3%',
+		      right: '8%',
+		      bottom: '5%',
+		      containLabel: true
+		    },
+
+		    xAxis: {
+		      name: '日期',
+		      type: 'category',
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          color: 'rgba(255,255,255,0.1)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      boundaryGap: false,
+		      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+		    },
+		    yAxis: {
+		      type: 'value',
+		      name: '金额（元）',
+		      axisLine: {
+		        show: false,
+		        lineStyle: {
+		          //color:'rgba(255,255,255,0.5)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          type: 'dashed',
+		          color: 'rgba(0,0,0,0.2)',
+		        }
+		      },
+		    },
+		    series: [
+		      {
+		        name: '全校平均消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [120, 132, 11, 134, 90, 230, 210, 11, 134, 90, 230, 210]
+		      },
+		      {
+		        name: '我的消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310]
+		      }
+	    	]
+		}	
+	)
+	//超市消费
+	echarts.init(document.getElementById('bill_supermarket')).setOption(
+		option = {
+		    color: ['#cfc298', '#23a93a'],
+		    title: {
+		      text: '本学期消费趋势图',
+		      left: 'center',
+			  top:'15',
+		      textStyle: {}
+		    },
+		    tooltip: {
+		      trigger: 'axis'
+		    },
+		    legend: {
+		      x: 'right',
+			  y:'15',
+		      data: ['全校平均消费', '我的消费']
+		    },
+		    grid: {
+		      //top:'14%',
+		      left: '3%',
+		      right: '8%',
+		      bottom: '5%',
+		      containLabel: true
+		    },
+
+		    xAxis: {
+		      name: '日期',
+		      type: 'category',
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          color: 'rgba(255,255,255,0.1)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      boundaryGap: false,
+		      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+		    },
+		    yAxis: {
+		      type: 'value',
+		      name: '金额（元）',
+		      axisLine: {
+		        show: false,
+		        lineStyle: {
+		          //color:'rgba(255,255,255,0.5)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          type: 'dashed',
+		          color: 'rgba(0,0,0,0.2)',
+		        }
+		      },
+		    },
+		    series: [
+		      {
+		        name: '全校平均消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [120, 132, 11, 134, 90, 230, 210, 11, 134, 90, 230, 210]
+		      },
+		      {
+		        name: '我的消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310]
+		      }
+	    	]
+		}	
+	);
+	//医院消费
+	echarts.init(document.getElementById('bill_hospital')).setOption(
+		option = {
+		    color: ['#c6e9c9', '#f8b912'],
+		    title: {
+		      text: '本学期消费趋势图',
+		      left: 'center',
+			  top:'15',
+		      textStyle: {}
+		    },
+		    tooltip: {
+		      trigger: 'axis'
+		    },
+		    legend: {
+		      x: 'right',
+			  y:'15',
+		      data: ['全校平均消费', '我的消费']
+		    },
+		    grid: {
+		      //top:'14%',
+		      left: '3%',
+		      right: '8%',
+		      bottom: '5%',
+		      containLabel: true
+		    },
+
+		    xAxis: {
+		      name: '日期',
+		      type: 'category',
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          color: 'rgba(255,255,255,0.1)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      boundaryGap: false,
+		      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+		    },
+		    yAxis: {
+		      type: 'value',
+		      name: '金额（元）',
+		      axisLine: {
+		        show: false,
+		        lineStyle: {
+		          //color:'rgba(255,255,255,0.5)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          type: 'dashed',
+		          color: 'rgba(0,0,0,0.2)',
+		        }
+		      },
+		    },
+		    series: [
+		      {
+		        name: '全校平均消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [120, 132, 11, 134, 90, 230, 210, 11, 134, 90, 230, 210]
+		      },
+		      {
+		        name: '我的消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310]
+		      }
+	    	]
+		}	
+	);
+	//用水消费
+	echarts.init(document.getElementById('bill_water')).setOption(
+		option = {
+		    color: ['#cec197', '#23a93a'],
+		    title: {
+		      text: '本学期消费趋势图',
+		      left: 'center',
+			  top:'15',
+		      textStyle: {}
+		    },
+		    tooltip: {
+		      trigger: 'axis'
+		    },
+		    legend: {
+		      x: 'right',
+			  y:'15',
+		      data: ['全校平均消费', '我的消费']
+		    },
+		    grid: {
+		      //top:'14%',
+		      left: '3%',
+		      right: '8%',
+		      bottom: '5%',
+		      containLabel: true
+		    },
+
+		    xAxis: {
+		      name: '日期',
+		      type: 'category',
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          color: 'rgba(255,255,255,0.1)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      boundaryGap: false,
+		      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+		    },
+		    yAxis: {
+		      type: 'value',
+		      name: '金额（元）',
+		      axisLine: {
+		        show: false,
+		        lineStyle: {
+		          //color:'rgba(255,255,255,0.5)',
+		        }
+		      },
+		      axisTick: {
+		        show: false
+		      },
+		      splitLine: {
+		        show: true,
+		        lineStyle: {
+		          type: 'dashed',
+		          color: 'rgba(0,0,0,0.2)',
+		        }
+		      },
+		    },
+		    series: [
+		      {
+		        name: '全校平均消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [120, 132, 11, 134, 90, 230, 210, 11, 134, 90, 230, 210]
+		      },
+		      {
+		        name: '我的消费',
+		        type: 'line',
+		        stack: '总量',
+		        data: [220, 182, 191, 234, 290, 330, 310, 191, 234, 290, 330, 310]
+		      }
+	    	]
+		}	
+	);</script></body></html>

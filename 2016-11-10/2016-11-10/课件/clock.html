@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	.box{ width:300px; height:303px; background:url(img/clock.png); margin:100px auto; position:relative;}
+	.box span{ transform-origin:center bottom;}
+	.hour{ width:10px; height:50px; background:#000; position:absolute; top:50%; left:50%; margin-left:-5px; margin-top:-50px;}
+	.min{ width:6px; height:70px; background:#000; position:absolute;top:50%; left:50%; margin-left:-3px; margin-top:-70px;}
+	.sec{ width:2px; height:90px; background:red;position:absolute;top:50%; left:50%; margin-left:-1px; margin-top:-90px;}
+</style>
+<script>
+	window.onload=function(){
+		var oDate=new Date();
+		var oH=oDate.getHours();
+		var oM=oDate.getMinutes();
+		var oS=oDate.getSeconds();
+		
+		var oHd=oH%12*30;
+		var oMd=oM*6;
+		var oSd=oS*6;
+		
+		var oHl=document.querySelector('.hour');
+		var oMl=document.querySelector('.min');
+		var oSl=document.querySelector('.sec');
+		
+		
+		oHl.style.transform='rotate('+oHd+'deg)';
+		oMl.style.transform='rotate('+oMd+'deg)';
+		oSl.style.transform='rotate('+oSd+'deg)';
+		
+		
+			
+	};
+</script>
+</head>
+
+<body>
+	<div class="box">
+    	<span class="hour"></span>
+        <span class="min"></span>
+        <span class="sec"></span>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

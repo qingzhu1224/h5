@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/raphael.min.js"></script>
+<script>
+	window.onload=function(){
+		//创建一个画布
+		var paper = Raphael(100, 150, 500, 500);
+
+	
+		//创建一个圆形 paper.circle(cx, cy, r);
+		var circle = paper.circle(100, 100, 50);
+		circle.attr('fill','red');
+		
+		//运动
+		circle.animate({fill: "green", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000);
+		
+	};
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	canvas{ background:#000; display:block;}
+</style>
+<script>
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);	
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		
+		var gd=oC.getContext('2d');
+		var oCw=document.documentElement.clientWidth;
+		var oCh=document.documentElement.clientHeight;
+		oC.width=oCw;
+		oC.height=oCh;
+		
+		var N=50;
+		
+		var aPos=[]; //[{l:100,t:100}]
+		var w=10;
+		var h=10;
+		
+		gd.fillStyle='#FFF';
+		for(var i=0; i<N;i++){
+			var x=rnd(0,oCw-w);
+			var y=rnd(0,oCh-h);
+			gd.fillRect(x,y,w,h);
+			
+			aPos.push({
+					l:x,
+					t:y,
+					speedX:rnd(1,5),
+					speedY:rnd(1,5),
+				});
+			
+		}
+		
+		setInterval(function(){
+			gd.clearRect(0,0,oC.width,oC.height);
+			for(var i=0; i<N;i++){
+				aPos[i].l=aPos[i].l+aPos[i].speedX;
+				aPos[i].t=aPos[i].t+aPos[i].speedY;
+				gd.fillRect(aPos[i].l,aPos[i].t,w,h);
+			}	
+		},16);
+		
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas></canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,361 @@
+canvas:
+    -> 画图 -> 位图
+
+    通过js
+
+    兼容么？ 兼容 IE9+ chrome FF
+
+图片：
+    png/git/jpeg
+
+图片：
+    位图(canvas)：由像素点构成
+        没有属性、没有事件，放大会失真
+
+        性能特别高――小游戏
+
+    矢量图(svg)：
+        具备属性、具备事件、放大不会失真
+
+        性能一般――交互性质比较多
+
+svg: 画图 -> 矢量图
+
+    <svg width="800" height="600"></svg>
+
+    兼容：跟canvas一样 IE9+ chrome FF
+
+    画图本质，就是一堆标签
+
+    <line x1="100" y1="100" x2="300" y2="300"></line>
+        x1 y1
+        x2 y2
+
+    stroke="red/#f00/rgb()/rgba()"  描边颜色
+
+    stroke-width="20"  线宽， 两边扩展
+
+修饰性东西：
+    a). 属性
+        stroke="red"
+        stroke-width="10"
+    b). 样式
+        style="stroke:red; stroke-width:20px"  行间
+
+        标签、class、id...
+
+    * 样式优先级：
+        属性<*<标签<class<id<行间
+
+* svg里面的图形，就当普通div用
+
+* 标签：
+    不区分大小写
+    可以使用单标记
+        <line x1="100" y1="100" x2="300" y2="300" />
+
+如何配合js?
+    获取：
+        getElementById();
+        getElementsByClassName()
+        getElementsByTagName()
+
+        querySelector()
+        querySelectorAll()
+    添加事件：
+        a). <input onclick=""
+        b). obj.onclick
+        c). obj.addEventListener()
+    样式：
+        设置：
+            style/className
+        获取：
+            getComputedStyle(this,false).xxx
+    属性：
+        obj.getAttribute();
+        obj.setAttribute()
+变形：
+    默认中心点，也在左上角
+
+    旋转:
+        属性：
+        transform="rotate(10)"
+
+        transform="rotate(30,250,100)"
+            250 100 中心点(只能用坐标)
+
+        样式：
+        transform:rotate(30deg)
+        transform-origin:center center;
+
+    平移：
+        transform="translate(0,100)"
+    缩放：
+        transform="scale(2,2)"
+
+    * 使用样式来操作
+------------------------------------
+矩形：
+    <rect x="100" y="100" width="300" height="200"></rect>
+
+        x y
+        width height
+
+        rx ry
+
+    fill="red"  填充颜色
+圆形：
+    <circle cx="200" cy="200" r="100"></circle>
+        cx
+        cy
+        r
+
+    fill-opacity=".5"
+    stroke-opacity=".5"
+
+椭圆:
+    <ellipse cx="200" cy="200" rx="100" ry="10"></ellipse>
+
+svg能用到属性：
+    stroke=""
+    stroke-width=""
+    fill=""
+    fill="none"  干掉填充颜色
+    fill-opacity=""
+    stroke-opacity=""
+
+    stroke-lineCap=""  端点样子
+        butt | round | square
+
+    stroke-lineJoin="" 连接样子
+        miter | round | bevel
+虚线：
+    stroke-dasharray="10"
+    stroke-dasharray="10,5"
+    stroke-dasharray="10,5,15"
+---------------------------------------
+svg运动：
+    transition:1s all ease   90%
+        样式运动(style)
+
+    属性:(x x1 y1 cx cy)
+        moveSvg(obj,json,options)
+path  +
+
+创建svg标签：
+    document.createElement()  -> 创建html元素的
+
+    document.createElementNS() -> 这才创建元素靠谱方式
+
+    NS -> Name Space 命名空间
+
+    document.createElementNS(空间名,标签名)   
+
+    空间名:
+        http://www.w3.org/2000/svg   svg空间名
+
+
+    document.createElementNS('http://www.w3.org/2000/svg','line');
+添加：
+    父级.appendChild(元素);
+    父级.insertBefore(元素,谁)
+删除：
+    父级.removeChild(元素);
+---------------------------------------
+路径：-> 最靠谱，最常用
+
+    <path></path>
+
+    <path d="M200 200 L300 100 L400 200 Z" fill="none" stroke="red"></path>
+
+        d="" 路径信息
+            分割，可以是 "," " "
+
+        M -> moveTo
+        L -> lineTo  (省略)
+        Z -> 闭合路径
+
+    *有人给坐标
+
+文字：
+    <text x="200" y="200">天通苑</text>
+
+----------------------------------------------------
+vml:The Vector Markup Language(矢量可标记语言)  -> 矢量图
+    微软里面画笔
+
+    兼容IE 6 7 9 10
+
+    IE8 不兼容
+
+强制变成IE7模式渲染：
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+基本使用流程：
+1. html里面添加一个命名空间
+    <html lang="en" xmlns:zns="urn:schemas-microsoft-com:vml">
+2. 添加一个样式
+    zns\:* {behavior: url(#default#VML);}
+3. 画图
+    <zns:line from="100,100" to="300,300"></zns:line>
+
+    strokecolor="red"  描边颜色
+    strokeweight="30"  线宽
+
+关于命名空间：
+     xmlns:zns="urn:schemas-microsoft-com:vml"
+     xmlns:baidu="urn:schemas-microsoft-com:vml"
+
+     xmlns:baidu
+------------------------------------
+* 关于vml图形，必须为块元素
+
+    样式需要变成：
+    v\:* {behavior: url(#default#VML);position:absolute;}
+
+其他图形：
+    矩形：
+        <v:rect style="width:300px; height:200px; left:100px; top:100px;"></v:rect>
+    圆形:
+        <v:oval style="width:300px; height:200px; left:200px; top:100px;"></v:oval>
+
+    fillcolor=""  填充颜色
+
+线类型：
+    <v:line from="100,100" to="300,300">
+            <v:stroke dashstyle="dot"/>
+                     dash
+        </v:line>
+线开头结尾样式：
+    <v:stroke endArrow="classic"/>
+    <v:stroke startArrow="oval"/>
+
+折线：
+    <v:PolyLine Points="0,0 0,100 20,150 200,100"/>
+圆角矩形:
+    <v:roundrect></v:roundrect>
+路径：
+    <v:shape path="M200 200 L300 100 L400 200 X" style="width:800px; height:600px"></v:shape>
+
+    M   moveTo
+    L    lineTo
+    X    闭合路径
+
+动态创建vml标签：
+//1 添加命名空间
+    document.namespaces.add("zns","urn:schemas-microsoft-com:vml");
+//2 动态添加样式
+    document.createStyleSheet().addRule("zns\\:*", "behavior:url(#default#VML)");
+
+//3.图形(创建)
+    var oLine=document.createElement('zns:line');
+    oLine.setAttribute('from','100,100');
+    oLine.setAttribute('to','300,300');
+
+    document.body.appendChild(oLine);
+-----------------------------------------
+canvas
+svg
+vml
+-----------------------------------------
+raphael: 拉斐尔
+
+    官网：http://dmitrybaranovskiy.github.io/raphael/
+
+    下载：
+
+    手册：http://dmitrybaranovskiy.github.io/raphael/reference.html
+
+
+使用：
+1. 引入文件
+    <script src="">
+2. 准备一张纸(画布)
+    var p=Raphael(0,0,800,600);
+3. 画图
+    p.rect(100,100,300,200);
+4. 添加属性
+    图形.attr({
+        fill：
+        storke:
+        'stroke-width':
+    })
+5. 事件
+    图形.click(function(){
+
+    });
+6. 运动：
+    图形.animate(json,duration,easing,complete);
+
+    duration-> ms
+    easing ->  linear ,ease-in,ease-out,elastic,bounce
+----------------------------------
+圆：
+    p.circle(200,200,100)
+椭圆:
+    p.ellipse();
+路径：
+    p.path('M200 200L300 100L400 200Z');
+文字:
+    p.text(200,200,'大智能社')
+
+---------------------------------
+事件：
+    .click();
+    .mouseover();
+    .mouseout();
+    .dblclick();
+    ....
+---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	function tv(name,age){
+		//原材料
+		var json={};
+		
+		//加工
+		json.name=name;
+		json.age=age;
+		json.sex='男';
+		json.say=function(){
+			alert('我叫'+this.name+',今年'+this.age+'岁了！性别是：'+this.sex);
+		}
+		
+		//出厂
+		return json;
+	}
+	
+	tv('TCL',6).say();
+	
+	
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+

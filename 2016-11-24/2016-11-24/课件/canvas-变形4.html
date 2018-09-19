@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	canvas{ border:1px solid red; display:block; margin:50px auto;}
+</style>
+<script>
+	function d2a(n){
+		return Math.PI/180*n;
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		var i=0;
+		setInterval(function(){
+			gd.clearRect(0,0,oC.width,oC.height);
+			i++;
+			gd.save();
+			gd.translate(300,150);
+			gd.rotate(d2a(i));
+			gd.fillRect(-100,-50,200,100);
+			gd.restore();	
+		},30);
+		
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>

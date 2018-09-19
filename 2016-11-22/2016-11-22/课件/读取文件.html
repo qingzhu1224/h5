@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red; margin:100px auto; display:none; color:#FFF; font-size:30px; text-align:center; line-height:200px;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.querySelector('div');
+		
+		var timer=null;
+		document.ondragover=function(){
+			clearTimeout(timer);
+			oDiv.style.display='block';
+			
+			timer=setTimeout(function(){
+				oDiv.style.display='none';		
+			},300);
+		};
+		
+		
+		//必须将ondragover事件清空才可以
+		oDiv.ondragover=function(){return false};
+		oDiv.ondrop=function(ev){
+			var aFile=ev.dataTransfer.files;
+			
+			//读取文件对象
+			var reader=new FileReader();
+			
+			//读取成功！
+			reader.onload=function(){
+				//alert('读完了');
+				
+				alert(reader.result);
+			};
+			
+			//读取方式：
+			//以文本方式读取
+			//reader.readAsText(aFile[0]);
+			//以base64形式读取
+			reader.readAsDataURL(aFile[0]);
+			
+			
+			
+			
+			
+			
+			
+			return false;	
+		};
+		
+		oDiv.ondragenter=function(){
+			this.innerHTML='释放鼠标';
+		};
+		
+		oDiv.ondragleave=function(){
+			this.innerHTML='请将文件拖拽至此';	
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<div>请将文件拖拽至此</div>
+</body>
+</html>

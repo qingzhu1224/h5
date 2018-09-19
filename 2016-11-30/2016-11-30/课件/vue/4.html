@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+<script>
+	window.onload=function(){
+		var app=new Vue({
+			el:'.box',
+			data:{
+				abc:true	
+			}	
+		});	
+	};
+</script>
+</head>
+<body>
+	<div class="box" style="border:1px solid red;" v-if="abc">
+    	你能看到我
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

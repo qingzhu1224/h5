@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	canvas{ display:block; margin:0 auto; background:url(img/game_bg_2_hd.jpg);}
+</style>
+<script src="js/fish.js"></script>
+<script src="js/source.js"></script>
+<script src="js/readImage.js"></script>
+<script>
+	//保存资源
+	var JSON={};
+	
+	function d2a(n){
+		return Math.PI/180*n;	
+	}
+	function a2d(n){
+		return 180/Math.PI*n;	
+	}
+	
+	//炮
+	var CANNON_SIZE=[
+		null,
+		{w: 74, h: 74},
+		{w: 74, h: 76},
+		{w: 74, h: 76},
+		{w: 74, h: 83},
+		{w: 74, h: 85},
+		{w: 74, h: 90},
+		{w: 74, h: 94}
+	];
+	
+	function Cannon(type){
+		this.type=type;
+		this.x=431;
+		this.y=570;
+		this.w=CANNON_SIZE[this.type].w;
+		this.h=CANNON_SIZE[this.type].h;
+		this.cur=0;
+		this.rotate=0;
+	}
+	Cannon.prototype.draw=function(gd){
+		gd.save();
+		
+		gd.translate(this.x,this.y);
+		gd.rotate(d2a(this.rotate));
+		gd.drawImage(JSON['cannon'+this.type],0,this.h*this.cur,this.w,this.h,-this.w/2,-this.h/2,this.w,this.h);
+		
+		gd.restore();
+	}
+	
+	Cannon.prototype.move=function(){
+		var _this=this;
+		clearInterval(this.timer);
+		this.timer=setInterval(function(){
+			_this.cur++;
+			
+			if(_this.cur==5){
+				clearInterval(_this.timer);
+				_this.cur=0;
+			}
+			
+		},100);	
+	};
+	
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		var gd=oC.getContext('2d');
+		
+		
+		//载入资源  资源列表,加载完成回调函数,加载进度函数
+		loadImage(arrSource,function(){
+
+			var oCannon=new Cannon(7);
+			var f1=new Fish(4);
+			
+			setInterval(function(){
+				gd.clearRect(0,0,oC.width,oC.height);
+				//画鱼
+				f1.draw(gd);
+				
+				//画炮台
+				gd.drawImage(JSON['bottom'],0,0,765,70,5,530,765,70);	
+				
+				//画炮筒
+				oCannon.draw(gd);
+				
+			},16);
+			
+			
+			//给画布加点击事件
+			var cannonX=oCannon.x;
+			var cannonY=oCannon.y;
+			oC.onclick=function(ev){
+				var evX=ev.clientX-oC.offsetLeft;
+				var evY=ev.clientY-oC.offsetTop;
+				
+				var a=cannonX-evX;
+				var b=cannonY-evY;
+				
+				var d=Math.atan2(a,b);
+				
+				oCannon.rotate=a2d(-d);
+				
+				oCannon.move();
+				
+				
+			};
+			
+			
+			
+		},function(scale){
+			//读取过程
+			//scale 0-1
+		});			
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="800" height="600"></canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

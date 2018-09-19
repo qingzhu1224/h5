@@ -1,0 +1,89 @@
+1. 发现问题 读问题 分解 翻译 
+
+微信：
+	微信公众号开发
+		发消息 
+
+公众号进入：
+	https://open.weixin.qq.com/cgi-bin/frame?t=home/mp_tmpl&lang=zh_CN
+-------------------------------------------------
+URL(服务器地址) 未填写
+Token(令牌) 未填写
+EncodingAESKey(消息加解密密钥) 未填写
+消息加解密方式 明文模式
+
+
+
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+
+{"access_token":"91GeElmRtMaGknlClc_3e5aUykt-74l7G71-ijb_cyJy28CjjVEPR7jhwhANoltpHcgxI8e0KK0t_vR14p8k2fCwjwYatjJYw75Rra71n10fhP5_Wu41cTgkpKtpEs33IMKjAJACGE","expires_in":7200}
+
+SDK 微信的封装的js库
+------------------------------------------------
+获取ticket 接口：
+	https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi
+
+--------------------------------------------
+
+{"errcode":0,"errmsg":"ok","ticket":"kgt8ON7yVITDhtdwci0qeZ7KTs-jTaG6AIV7uj0gDE3nqOAAbbzh4JzH8goVLFu5nokGmNNCuC_A5h-E9CmqLg","expires_in":7200}
+
+---------------------------------------------
+wx.getLocation({
+    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy; // 位置精度
+    }
+});
+
+	wx.startSearchBeacons({
+		ticket:"",  //摇周边的业务ticket, 系统自动添加在摇出来的页面链接后面
+		complete:function(argv){
+			//开启查找完成后的回调函数
+		}
+	});
+
+	wx.chooseWXPay({
+	    timestamp: 0, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+	    nonceStr: '', // 支付签名随机串，不长于 32 位
+	    package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+	    signType: '', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+	    paySign: '', // 支付签名
+	    success: function (res) {
+	        // 支付成功后的回调函数
+	    }
+	});
+--------------------------------------------------
+phoneGap/appCan
+	封装APP 
+		APP 应用 安装到手机
+
+	将页面封装成APP软件
+
+	native App 传统App  安卓java  ios 
+		1. 速度快，性能高
+		2. 更新费劲
+		3. 开发周期长
+
+	hybrid App 混合式开发APP
+		1. 借用app壳子，内部H5页面
+		2. 更新难度较小
+		3. 开发周期一般
+
+	web App
+		1. 纯页面，用户流失快
+		2. 更新没有难度
+		3. 开发周期短
+---------------------------------------------------
+phoneGap 
+
+	官网：http://phonegap.com/
+
+	打包： https://build.phonegap.com/
+
+------------------------------------------------
+
+
+

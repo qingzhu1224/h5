@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	span{ position:absolute; width:5px; height:5px; background:#000;}
+</style>
+<script>
+	window.onload=function(){
+		var oBody=document.body;
+		
+		document.onmousedown=function(){
+			document.onmousemove=function(ev){
+				var oSpan=document.createElement('span');
+				oSpan.style.left=ev.clientX+'px';
+				oSpan.style.top=ev.clientY+'px';
+				
+				oBody.appendChild(oSpan);
+				
+			}	
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;	
+			}
+			return false;
+		}
+			
+	};
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>

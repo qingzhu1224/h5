@@ -1,0 +1,95 @@
+node.js
+	使用 javastcrpt 语言 去操作后台功能！
+
+	安装包 下载 安装到电脑上
+
+	官网：https://nodejs.org/en/
+
+
+	调取命令行：
+		win->输入cmd 回车
+
+	验证是否安装 成功：
+		命令行下 执行 node -v  查看node版本
+
+		cmd：
+			切换盘符： d:
+
+			进入文件夹： cd 文件夹名称
+
+			退出文件夹： cd ..
+
+			清屏：cls
+
+			停止命令 ctrl+c
+
+	node 不可以操作dom和bom 不能用alert(1);
+
+	用console.log();
+-----------------------------------------
+服务器来提供访问的！
+	node 写后台 ， 后台就是服务器
+
+	提供服务：
+		//引入服务器模块
+		var http=require('http');
+
+		//创建服务器
+		var oHttp=http.createServer(function(req,res){
+			console.log('有人来了');
+
+			//获取访问路径
+			req.url 
+
+			//返回一个值
+			res.write('this is a test');
+			//说完了
+			res.end();
+		});
+
+		//监听服务器端口 
+		oHttp.listen(8081);
+
+-----------------------------------------
+读取文件：
+	fs
+	//引入读文件取模块
+	var fs=require('fs');
+
+	//读取
+	fs.readFile('文件名','utf-8',fn(err,data){})
+
+	fs.readFile('demo.html','utf-8',function(err,data){
+		if(err){
+			console.log('404');
+		}else{
+			console.log(data);	
+		}
+	});
+--------------------------------------------
+数据库：
+	安装mysql模块 
+		在cmd 中 输入
+			npm install mysql
+	
+	//引入mysql模块
+	var mysql=require('mysql');
+
+	//创建与数据库的连接
+	var db=mysql.createConnection({
+		host:'localhost',
+		user:'cris',
+		password:'admin123',
+		database:'2016-12-2'
+	});
+
+	//执行sql
+	db.query('SELECT * FROM news',function(err,data){
+		if(err){
+			console.log('获取失败');	
+		}else{
+			console.log(data);	
+		}
+	});
+	
+------------------------------------------------

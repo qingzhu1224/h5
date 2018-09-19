@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var aBtn=document.querySelectorAll('input');
+		var oV=document.querySelector('video');
+		var meter=document.querySelector('meter');
+		
+		aBtn[0].onclick=function(){
+			oV.play();
+		};	
+		
+		aBtn[1].onclick=function(){
+			oV.pause();
+		};
+		
+		aBtn[2].onclick=function(){
+			oV.currentTime+=10;
+		};
+		
+		aBtn[3].onclick=function(){
+			oV.currentTime-=10;
+		};
+		
+		aBtn[4].onclick=function(){
+			oV.volume+=0.1;
+		};
+		
+		aBtn[5].onclick=function(){
+			oV.volume-=0.1;
+		};
+		
+		aBtn[5].onclick=function(){
+			oV.volume-=0.1;
+		};
+		
+		aBtn[6].onclick=function(){
+			if(oV.muted){
+				oV.muted=false;
+			}else{
+				oV.muted=true;	
+			}
+		};
+		
+		//进度条
+		//当视频播放时
+		oV.ontimeupdate=function(){
+			
+			//当前播放时间/视频时长
+			//oV.currentTime/ oV.duration
+			var scale=oV.currentTime/ oV.duration;
+			meter.value=scale*100;
+			
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<p>
+    	<input type="button" value="播放" />
+        <input type="button" value="暂停" />
+        <input type="button" value="快进" />
+        <input type="button" value="快退" />
+        <input type="button" value="音量+" />
+        <input type="button" value="音量-" />
+        <input type="button" value="静音" />
+    </p>
+    
+	<video src="mp4/1.mp4" controls></video><br />
+    <meter style=" width:640px; height:50px;" max="100" value="0"></meter>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

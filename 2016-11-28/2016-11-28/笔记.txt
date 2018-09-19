@@ -1,0 +1,236 @@
+百度地图、多线程、websql、css3高级运动
+
+svg/vml 绘图
+
+==============================================
+移动端：-webkit-
+
+css3
+	变形：
+		transform:rotate(0deg); 旋转
+			transform:rotateX(10deg); 
+			transform:rotateY(20deg); 
+			transform:rotateZ(30deg); 
+		transform:translate(x,y); 平移
+		transform:translate3d(x,y,z); 3d平移
+		transform:scale(x,y); 缩放比例
+		transform:skew(x,y); 倾斜
+
+
+	过渡：
+		transition:1s; = transition:all 1s ease;
+		transition:1s linear; 匀速
+		transition:transform 1s ease,background 1s ease; 多个值同时修改
+		transition:transform 1s ease 2s; 延迟2s运动
+	分开写：
+		transition-delay:2s;  延迟时间
+		transition-duration:1s; 运动时间
+		transition-property:all; 运动样式
+		transition-timing-function:ease-in; 运动形式
+
+	3D盒子：
+		transform-style:preserve-3d;
+
+	景深：
+		perspective(800px-1200px);
+------------------------------------------------------------
+animation
+
+	调用：
+	animation:name 2s ease; 
+
+	/*定义动画帧*/
+	@keyframes name{
+		from{
+			width:100px;	
+		}
+		to{
+			width:300px;		
+		}	
+	}
+
+
+	@keyframes name{
+		25%{ left:300px; top:0; background:blue}
+		50%{ top:300px; left:300px; background:yellow}
+		75%{ top:300px; left:0; background:pink;}
+	}
+
+-----------------------------------------------------------
+风车效果：
+无缝滚动：
+	CSS3无缝滚动
+
+	animation-play-state:paused; 暂停运动
+
+	animation-direction:alternate; 交替运动
+
+	animation-iteration-count:3; 运动次数
+
+	animation-name:run; 运动名称
+
+	animation-duration:1s; 运动时间
+
+	animation-timing-function:ease; 运动形式
+
+	animation-delay:1s; 延迟执行时间
+
+	animation-fill-mode:forwards; 定到终点位置
+
+-------------------------------------------------------------
+animate css
+	https://daneden.github.io/animate.css/
+
+
+=========================================================
+H5
+	获取地理位置
+		返回的是坐标 经纬度
+
+	地图上标注所在位置！
+
+	浏览器是否支持：IE9+ chrome firefox
+
+	navigator.geolocation   获取地理位置
+
+	获取当前位置坐标：
+	navigator.geolocation.getCurrentPosition(fnSucc,fnFail);
+
+	function fnSucc(ev){
+		ev.coords.longitude; 获取经度
+		ev.coords.latitude;  获取纬度
+		ev.coords.accuracy   获取经纬度的精确度 （高于60基本没用的）
+		ev.coords.altitude 海拔高度
+		ev.coords.altitudeAccuracy 海拔高度精确度
+		ev.coords.heading 朝向 
+		ev.coords.speed 速度 
+	}
+
+	function(ev){
+	     失败
+	     ev.code 
+	          0 未知错误
+	          1.用户拒绝
+	          2.获取失败
+	          3.超时
+	    ev.message 错误消息
+	}
+
+
+
+实时获取此时位置：在手机中测试
+    var timer= navigator.geolocation .watchPosition(fnSucc,fnFail,{
+          frequency:1000 //每隔多长时间刷新一次
+     });
+
+    clearWatch(timer)  关闭实时获取
+
+------------------------------------------------------------
+
+12月6号 
+
+-----------------------------------------------------------
+百度地图：
+
+	API：http://lbsyun.baidu.com/index.php?title=jspopular
+
+	高德 
+	谷歌 
+	搜狗 
+
+	秘钥：SE8Gt6bQNyVHU4gi9YVF9svakrrozL2N
+
+
+	引入百度地图：
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SE8Gt6bQNyVHU4gi9YVF9svakrrozL2N"></script>
+
+	调用地图：
+		var map=new BMap.Map('allmap');
+		var oPoint=new BMap.Point(116.3799755,40.1062);
+		map.centerAndZoom(oPoint,18);
+
+API：
+	http://developer.baidu.com/map/jsdemo.htm#j1_0
+
+----------------------------------------------------
+webWorker	
+
+	模拟多线程
+
+	多线程 快 
+ 
+	单线程 慢 
+--------------------------------------------------------
+	js原生语言 单线程语言！ 
+
+	主线程 声明子线程 html页面
+	子线程 执行函数并返回结果 js文件
+
+	提高性能！/响应速度
+
+	js DOM操作 循环 大量数据操作 
+
+
+	斐波那契数列：将复杂的运算和工作量，以多线程形式来编辑，响应速度更高一些！
+
+---------------------------------------------------------
+webSql
+	数据库 mysql  安全
+
+	保存在浏览器上的数据 webSql 没有安全  容量 5M
+
+	webSql 做一些简单的单击游戏 保存值
+
+	localStorage 本地存储 
+--------------------------------------------------------
+	流程：
+		1. 建立数据库连接
+		var db=openDatabase(数据库名称，数据库版本，数据库描述信息，容量申请)
+
+		2. 开启事务
+		db.transaction(function(tx){
+			tx 事务上下文
+
+			//创建表格
+			tx.executeSql('CREATE table news(title TEXT,href TEXT)');	
+
+			//录入一条数据
+       		 tx.executeSql('INSERT INTO news VALUES("草莓音乐节被批混乱 资本让音乐节变成春晚","http://www.zhinengshe.com")');
+
+       		 //输出数据
+             tx.executeSql('SELECT * FROM news',[],function(tx,result){
+                     result.rows 一组数据
+             },function(tx,err){alert(err)}
+
+
+		});
+---------------------------------------------------
+bootstrap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

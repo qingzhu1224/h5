@@ -1,0 +1,222 @@
+媒体查询：
+	响应式布局 不同终端 显示各自状态的页面 
+
+	@media screen and (max-width:300px) and (min-width:100px){
+
+	}
+
+媒体查询条件：减轻服务器压力
+	
+	<link rel="stylesheet" href="css/pad.css" media="(max-width:960px) and (min-width:641px)" />
+	<link rel="stylesheet" href="css/phone.css" media="(max-width:640px)" />
+-----------------------------------------------------
+媒体查询：
+	检测手机横竖屏：
+           @media screen and (orientation: landscape) 横屏
+           @media screen and (orientation: portrait) 竖屏
+
+    区分设备：
+    	device-width 设备宽度
+
+		eg：@media screen and (max-device-width:1023px){
+				div:after{ content:'手机';}
+				div{ background:purple;}	
+			}
+			@media screen and (min-device-width:1024px){
+				div:after{ content:'PC';}	
+				div{ background:green;}	
+			}
+---------------------------------------------------------
+	其他条件：
+	    all        所有设备
+	    screen       屏幕设备
+	    print        打印设备
+	    projection   投影设备
+	    tty          电传打字机
+	    aural        听觉设备
+	    braille      盲文设备   
+	    handheld     手持设备
+	    tv           电视设备
+	    ...
+------------------------------------------------------
+前端：
+	前端  设计+切图
+	前端  切图+js特效
+	前端  切图+js特效+数据交互
+	前端  切图+js特效+数据交互+数据处理框架
+	前端  切图+js特效+数据交互+数据处理框架+node.js（后台）
+	现在：切图+js特效+数据交互+数据处理框架+node.js（后台）+ 自动化+mvc+模块化+打包app+移动端开发
+
+	全栈开发： 静态页-js-数据-后台 node  
+
+		静态页-js-数据  后台
+
+	3年计划 职业计划 
+		初级前端 学习  态度 
+			积累经验 有能力 项目经验
+
+		中级 数据操作 
+
+		高级 封装库，组件 思想 
+----------------------------------------------------------
+流体布局 
+	百分比+float+bootstarp栅格系统
+
+固定宽度：
+	min-width
+	max-width
+
+弹性盒子：
+	display:-webkit-box;
+	-webkit-box-flex:1;
+
+	li  -webkit-box-flex:1;
+
+rem布局 相对单位布局
+	js 方法：
+		改变html标签的font-size 它对应的rem值变
+
+响应式布局
+	媒体查询 不同终端 
+		手机页面
+			.wrap_phone{ display:block;}
+		pc页面
+			.wrap_pc{ display:block;}
+---------------------------------------------------------
+移动端js
+	pc端js  事件不同 
+		onclick
+		onmousedown
+		onmouseup
+		onmousemove
+	移动端js 事件 都必须用事件绑定添加！
+		touchstart
+		touchmove
+		touchend
+
+		onclick
+		obj.addEventListener('touchstart',fn,false); 
+
+			ev之内 有一个 targetTouches手指对象列表
+						找到第一个手指 targetTouches[0]
+							再去获取它下面的手指坐标：
+								targetTouches[0].clientX;
+								targetTouches[0].clientY;
+
+	事件绑定添加 必须事件解绑定:必须是命名函数
+		function show(){
+			alert(1);
+		}
+
+		addEventListener('touchmove',show,false);
+
+		removeEventListener('touchmove',show,false);
+
+	在事件绑定中 return false 失效!
+		清除默认事件用：ev.preventDefault();
+
+
+---------------------------------------------------------
+新浪云
+	http://www.sinacloud.com/ucenter.html
+
+		控制台： 云应用 SAE
+
+			创建应用
+				免费版 
+					php 标准环境  svn
+					二级域名 自己的名字
+					创建版本
+					仓库地址：
+					https://svn.sinacloud.com/gebilaowang
+
+			svn 代码管理器
+				软件 直接安装就可以了
+				下载：百度下载 关键字 svn客户端
+
+				安装：下一步 一键到底！
+					验证是否成功！ 鼠标右键之内 是否 存在svn
+					如果没有 重启电脑！  
+					如果还没有 重新安装！
+
+			使用：
+				1.新建文件夹 
+				2.在文件夹之内鼠标右键
+				3.选择svn checkout
+				4.将仓库地址复制到svn弹出框中的第一个input中
+				5.输入账号密码 回车
+				6. 将下载好的文件夹没用的页面文件删掉，再把自己的页面复制进去
+				7. 鼠标右键 svn commit 
+				8. 输入账号密码 回车
+				9. 访问 网址 http://二级域名.applinzi.com/abc.html
+
+			登录密码
+			安全密码 用户信息中创建 
+-------------------------------------------------------------
+轮播图：
+	拖拽事件
+
+	替代：window.onload
+		document.addEventListener('DOMContentLoaded',function(){
+			alert(1);	
+		},false);
+
+	在touchend的时候：
+		var upX=ev.changedTouches[0].clientX;
+
+------------------------------------------------------
+1. 所有的css3 样式 必须都加上 -webkit-
+
+2. 能减少dom操作尽力减少dom
+
+3. 尽量在改变位置的时候 用 3d模式	
+	-webkit-transform:translate3d(-16rem,0,0) 
+	默认开启手机3d加速模式
+
+
+=======================================================
+拖拽 
+
+练习：
+	
+	聚划算 幻灯片 
+
+	拖拽封装 
+
+	新浪云 安装svn 
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+

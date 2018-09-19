@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	.clearfix:after{ display:block; content:''; clear:both;}
+	.cleafix{ zoom:1;}
+	div{ border:1px solid red;}
+	p{ height:200px; border:1px solid blue; float:left; margin-left:10px;}
+	.p1{ width:400px; background:yellow;}
+	.p2{ width:200px; background:green;}
+	.p3{ width:200px; background:pink;}
+	
+	@media screen and (max-width:840px){
+		.p2{ display:none;}	
+	}
+</style>
+</head>
+
+<body>
+	<div class="clearfix">
+    	<p class="p1"></p>
+        <p class="p2"></p>
+        <p class="p3"></p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

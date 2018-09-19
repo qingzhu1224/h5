@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	svg{ width:700px; height:500px; background:#EEE;}
+	.box{  width:200px; height:200px; fill:pink;}
+</style>
+<script src="move.js"></script>
+<script>
+	window.onload=function(){
+		var rect=document.querySelector('.box');
+		
+		rect.onclick=function(){
+			//this.setAttribute('x','400px');
+			
+			doMove(this,{'x':'400px'});
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<svg>
+    	<rect class="box" x="100" y="100"></rect>
+    </svg>
+</body>
+</html>

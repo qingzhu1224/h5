@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	ul{ border:1px solid blue; overflow:hidden;}
+	li{ width:200px; height:200px; background:red; float:left; margin:10px;}
+</style>
+<script>
+	//事件委托 自己的父级 
+	//1万个li 加点击事件 
+	//把事件加给ul 
+	
+	window.onload=function(){
+		var oUl=document.getElementsByTagName('ul')[0];
+		oUl.onclick=function(ev){
+			//alert(1)	
+			var obj=ev.srcElement;
+			if(obj.tagName=='UL'){
+				return ;
+			}
+			
+			obj.style.background='yellow';
+		};	
+	};
+	
+	
+	
+	
+	
+	
+</script>
+</head>
+
+<body>
+	<ul>
+    	<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

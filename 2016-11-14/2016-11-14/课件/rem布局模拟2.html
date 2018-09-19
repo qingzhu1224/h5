@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	div{ width:100%; height:3rem; background:red;}
+	.box{ height:3rem;}
+</style>
+<script>
+	
+	(function(win,doc){
+		win.addEventListener('resize',change,false);
+		change();
+		function change(){
+			doc.documentElement.style.fontSize=20/320*doc.documentElement.clientWidth+'px';	
+		}	
+	})(window,document);
+	
+</script>
+</head>
+
+<body>
+	<div class="box"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	canvas{ margin:0 auto; border:1px solid #000; display:block;}
+</style>
+<script>
+	
+	function d2a(n){
+		return Math.PI/180*n;
+	}
+
+	window.onload=function(){
+		var oC=document.querySelector('canvas');
+		
+		var gd=oC.getContext('2d');
+		
+		clock();
+		setInterval(function(){
+			
+			gd.clearRect(0,0,oC.width,oC.height);
+			
+			clock();
+
+		},1000);
+		
+		function clock(){
+			var oDate=new Date();		
+			var oH=oDate.getHours()%12;
+			var oM=oDate.getMinutes();
+			var oS=oDate.getSeconds();
+			
+			var oHd=oH*360/12;
+			var oMd=oM*360/60;
+			var oSd=oS*360/60;
+			
+			var start=d2a(-90);
+			
+			gd.beginPath();
+			gd.strokeStyle='#f40';
+			gd.lineWidth=10;
+			gd.arc(300,250,100,start,d2a(oSd-90),false);
+			gd.stroke();
+			
+			gd.beginPath();
+			gd.strokeStyle='#9f0';
+			gd.lineWidth=15;
+			gd.arc(300,250,150,start,d2a(oMd-90),false);
+			gd.stroke();
+			
+			
+			gd.beginPath();
+			gd.strokeStyle='purple';
+			gd.lineWidth=20;
+			gd.arc(300,250,200,start,d2a(oHd-90),false);
+			gd.stroke();	
+		}
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<canvas width="600" height="500"></canvas>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

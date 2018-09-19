@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue1.0.js"></script>
+<script src="js/vue-resource.js"></script>
+</head>
+
+<body>
+	<ul class="list">
+    	{{get()}}
+    	<li v-for="item in list">{{item}}</li>
+    </ul>
+</body>
+<script>
+	var app=new Vue({
+		el:'.list',
+		data:{
+			list:[]	
+		},
+		methods:{
+			get:function(){
+				alert(1);
+				this.$http.get('a.txt').then(function(res){
+					this.list=res.data;
+				},function(){
+					console.log('失败了');	
+				})
+			}	
+		}
+	});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+

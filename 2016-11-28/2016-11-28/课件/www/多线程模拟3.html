@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+	<input type="button"  value="按钮1" />
+    <input type="button"  value="按钮2" />
+</body>
+<script>
+	var aBtn=document.querySelectorAll('input');
+	var oW=new Worker('多线程.js');
+	aBtn[0].onclick=function(){
+		alert(1);	
+	};
+	
+	aBtn[1].onclick=function(){
+		//发送
+		oW.postMessage(43);
+	};
+	
+	oW.onmessage=function(ev){
+		alert(ev.data);	
+	};
+	
+	
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+

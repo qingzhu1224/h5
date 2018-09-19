@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+	function tv(name,age){
+		//var this={};
+		
+		//声明属性
+		this.name=name;
+		this.age=age;
+		
+		//return this;		
+	}
+	
+	//声明方法
+	tv.prototype.say=function(){
+		alert('我叫'+this.name+',今年'+this.age+'岁');
+	};
+	
+	
+	
+	var obj=new tv('abc',4);
+	var obj2=new tv('bcd',4);
+	
+	//alert(obj.say);
+	//obj.say()
+	//obj2.say()
+	
+	alert(obj.say==obj2.say);
+	
+	
+	
+	
+</script>
+</head>
+
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
